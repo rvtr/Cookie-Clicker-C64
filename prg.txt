@@ -1,0 +1,55 @@
+0 rem !to "build/cookie.prg"
+10 cc=0:cg=0:ca=0:ga=0
+20 c1=15:c2=50
+50 ds$=chr$(17):rem cursor down
+60 rs$=chr$(29):rem cursor right
+100 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+110 print"B you have "int(cc)"            Bcursor     B"
+120 print"B cookies                 B ("ca")     B"
+130 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*cost:      B"
+140 print"B                         B"c1"       B"
+150 print"B       ********          *CCCCCCCCCCC*"
+160 print"B      *      ***         Bgrandma    B"
+170 print"B     *  *       *        B ("ga")     B"
+180 print"B    *  **        *       Bcost:      B"
+190 print"B    *       **   *       B"c2"       B"
+200 print"B    *       **   *       *CCCCCCCCCCC*"
+210 print"B    *            *       B           B"
+220 print"B    ***          *       B           B"
+230 print"B    **           *       B           B"
+240 print"B     *     **   *        B           B"
+250 print"B      *    **  *         B           B"
+260 print"B       ********          B           B"
+270 print"B                         B           B"
+280 print"B                         B           B"
+290 print"B                         B           B"
+300 print"B                         B           B"
+310 print"B                         B           B"
+320 print"B                         B           B"
+330 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+
+1000 get k$:if k$= "" then 1500
+1010 if k$=" " then 2000
+1020 if k$="c" then 3000
+1030 if k$="g" then 4000
+
+1500 cc=cc+cg
+1500 print"{home}"ds$"B you have "int(cc)"
+1500 goto 1000
+
+2000 cc=cc+1
+2010 print"{home}"ds$"B you have "int(cc)"
+2020 goto 1000
+
+3000 if cc<15 then 1000
+3010 cc=cc-c1
+3015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
+3020 cg=cg+.1
+3030 cc=cc+cg
+3040 print"{home}"ds$"B you have "int(cc)"
+3050 goto 1000
+
+
+
+
+ 
