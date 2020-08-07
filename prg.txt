@@ -41,13 +41,21 @@
 2010 print"{home}"ds$"B you have "int(cc)"
 2020 goto 1000
 
-3000 if cc<15 then 1000
+3000 if cc<c1 then 1000
 3010 cc=cc-c1
 3015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
 3020 cg=cg+.1
 3030 cc=cc+cg
 3040 print"{home}"ds$"B you have "int(cc)"
 3050 goto 1000
+
+4000 if cc<c2 then 1000
+4010 cc=cc-c2
+4015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
+4020 cg=cg+.2
+4030 cc=cc+cg
+4040 print"{home}"ds$"B you have "int(cc)"
+4050 goto 1000
 
 
 
