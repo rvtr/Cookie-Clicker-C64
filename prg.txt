@@ -57,7 +57,7 @@
 4000 if cc<c2 then 1000
 4010 cc=cc-c2
 4015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
-3020 ca=ca+1
+3020 ga=ga+1
 3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"B     *  *       *        B ("ga")     B"
 4030 cg=cg+.2
 4040 cc=cc+cg
@@ -80,7 +80,8 @@
 5500 if cc<c3 then 1000
 5510 cc=cc-c3
 5515 print"{home}"ds$"B you have                ":rem stops from messing up the counter
-5520 cg=cg+.4
+5520 fa=fa+1
+5525 cg=cg+.4
 5530 cc=cc+cg
 5540 print"{home}"ds$"B you have "int(cc)"
 5550 goto 1000
