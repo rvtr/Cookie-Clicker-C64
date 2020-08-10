@@ -1,26 +1,26 @@
 0 rem !to "build/cookie.prg"
-10 cc=0:cg=0:ca=0:ga=0:ft$="0"
+10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0"
 20 c1=15:c2=100:c3=1100
 50 ds$=chr$(17):rem cursor down
 60 rs$=chr$(29):rem cursor right
-100 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
-110 print"B you have "int(cc)"            Bcursor(c)  B"
-115 l3$="B cookies                 B"
-120 printl3$" ("ca")     B"
-130 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*cost:      B"
-140 print"B                         B"c1"       B"
-150 print"B       ********          *CCCCCCCCCCC*"
-160 print"B      *      ***         Bgrandma(g) B"
-170 print"B     *  *       *        B ("ga")     B"
-180 print"B    *  **        *       Bcost:      B"
-190 print"B    *       **   *       B"c2"      B"
-200 print"B    *       **   *       *CCCCCCCCCCC*"
-210 print"B    *            *       B           B"
-220 print"B    ***          *       B           B"
-230 print"B    **           *       B           B"
-240 print"B     *     **   *        B           B"
-250 print"B      *    **  *         B           B"
-260 print"B       ********          B           B"
+100 print"{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+110 print"{grey2}B{wht} you have "int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
+115 l3$="{grey2}B{wht} cookies                 {grey2}B{wht}"
+120 printl3$ca"        {grey2}B"
+130 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*{wht}cost:      {grey2}B"
+140 print"B                         B{wht}"c1"       {grey2}B"
+150 print"B       {brown}********{grey2}          *CCCCCCCCCCC*"
+160 print"B      {brown}*******{blk}**{brown}*{grey2}         B{wht}grandma(g) {grey2}B"
+170 print"B     {brown}***{blk}*{brown}********{grey2}        B{wht}"ga"        {grey2}B"
+180 print"B    {brown}***{blk}**{brown}*********{grey2}       B{wht}cost:      {grey2}B"
+190 print"B    {brown}********{blk}**{brown}****{grey2}       B{wht}"c2"      {grey2}B"
+200 print"B    {brown}********{blk}**{brown}****{grey2}       *CCCCCCCCCCC*"
+210 print"B    {brown}**************{grey2}       B           B"
+220 print"B    {brown}*{blk}*{brown}************{grey2}       B           B"
+230 print"B    {brown}*************{brown}*{grey2}       B           B"
+240 print"B     {brown}******{blk}**{brown}****{grey2}        B           B"
+250 print"B      {brown}*****{blk}**{brown}***{grey2}         B           B"
+260 print"B       {brown}********{grey2}          B           B"
 270 print"B                         B           B"
 280 print"B                         B           B"
 290 print"B                         B           B"
@@ -37,58 +37,84 @@
 1050 if k$="f" then 5500
 
 1500 cc=cc+cg
-1510 print"{home}"ds$"B you have "int(cc)"
+1510 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 1520 goto 1000
 
 2000 cc=cc+1
-2010 print"{home}"ds$"B you have "int(cc)"
+2010 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 2020 goto 1000
 
 3000 if cc<c1 then 1000
 3010 cc=cc-c1
-3015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
-3025 print"{home}"ds$ds$l3$" ("ca")"
-3030 cg=cg+.1
+3015 print"{home}"ds$"B{wht} you have                ":rem stops from messing up the counter
+3025 print"{home}"ds$ds$l3$ca"   "
+3030 cg=cg+.04
 3040 cc=cc+cg
-3050 print"{home}"ds$"B you have "int(cc)"
+3050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 3060 ca=ca+1
+3065 print"{home}"ds$ds$
 3070 goto 1000
 
 4000 if cc<c2 then 1000
 4010 cc=cc-c2
 4015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
 3020 ga=ga+1
-3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"B     *  *       *        B ("ga")     B"
-4030 cg=cg+.2
+3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{grey2}B     {brown}***{blk}*{brown}********{grey2}        B{wht}"ga
+4030 cg=cg+.05
 4040 cc=cc+cg
-4050 print"{home}"ds$"B you have "int(cc)"
+4050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 4060 goto 1000
 
 
 
 5000 if cc<500 then 1010
 5010 ft$="1"
-5020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"B    *            *       Bfarm(f)    B"
-5030 print"B    ***          *       B ("fa")     B"
-5040 print"B    **           *       Bcost:      B"
-5050 print"B     *     **   *        B"c3"     B"
-5060 print"B      *    **  *         *CCCCCCCCCCC*"
+5020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B    {brown}**************{grey2}       B{wht}farm(f)    {grey2}B"
+5030 print"B    {brown}*{blk}*{brown}************{grey2}       B{wht}"fa"        {grey2}B"
+5040 print"B    {brown}*************{brown}*{grey2}       B{wht}cost:      {grey2}B"
+5050 print"B     {brown}******{blk}**{brown}****{grey2}        B{wht}"c3"     {grey2}B"
+5060 print"B      {brown}*****{blk}**{brown}***{grey2}         *CCCCCCCCCCC*"
 5070 goto 1010
 
 
 
 5500 if cc<c3 then 1000
 5510 cc=cc-c3
-5515 print"{home}"ds$"B you have                ":rem stops from messing up the counter
+5515 print"{home}"ds$"B{wht} you have                ":rem stops from messing up the counter
 5520 fa=fa+1
-5525 cg=cg+.4
+5525 cg=cg+.06
 5530 cc=cc+cg
-5540 print"{home}"ds$"B you have "int(cc)"
+5540 print"{home}"ds$"B{wht} you have "int(cc)
 5550 goto 1000
 
 
 
 
+
+
+
+
+
+
+6000 if cc<500 then 1010
+6010 ft$="1"
+6020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B    *            *       B{wht}farm(f)    {grey2}B"
+6030 print"B    {brown}**************{grey2}       B"fa"        {grey2}B"
+6040 print"B    **           *       B{wht}cost:      {grey2}B"
+6050 print"B     *     **   *        B{wht}"c3"     {grey2}B"
+6060 print"B      *    **  *         *CCCCCCCCCCC*"
+6070 goto 1010
+
+
+
+6500 if cc<c3 then 1000
+6510 cc=cc-c3
+6515 print"{home}"ds$"B{wht} you have                ":rem stops from messing up the counter
+6520 fa=fa+1
+6525 cg=cg+.06
+6530 cc=cc+cg
+6540 print"{home}"ds$"B{wht} you have "int(cc)
+6550 goto 1000 
 
 
 
