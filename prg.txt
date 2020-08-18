@@ -3,46 +3,76 @@
 20 c1=15:c2=100:c3=1100:c4=12000
 50 ds$=chr$(17):rem cursor down
 60 rs$=chr$(29):rem cursor right
-100 print"{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
-110 print"{grey2}B{wht} you have "int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
-115 l3$="{grey2}B{wht} cookies                 {grey2}B{wht}"
-120 printl3$ca"        {grey2}B"
-130 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*{wht}cost:      {grey2}B"
-140 print"B                         B{wht}"c1"       {grey2}B"
-150 print"B       {brown}********{grey2}          *CCCCCCCCCCC*"
-160 print"B      {brown}*******{blk}**{brown}*{grey2}         B{wht}grandma(g) {grey2}B"
-170 print"B     {brown}***{blk}*{brown}********{grey2}        B{wht}"ga"        {grey2}B"
-180 print"B    {brown}***{blk}**{brown}*********{grey2}       B{wht}cost:      {grey2}B"
-190 print"B    {brown}********{blk}**{brown}****{grey2}       B{wht}"c2"      {grey2}B"
-200 print"B    {brown}********{blk}**{brown}****{grey2}       *CCCCCCCCCCC*"
-210 print"B    {brown}**************{grey2}       B           B"
-220 print"B    {brown}*{blk}*{brown}************{grey2}       B           B"
-230 print"B    {brown}*************{brown}*{grey2}       B           B"
-240 print"B     {brown}******{blk}**{brown}****{grey2}        B           B"
-250 print"B      {brown}*****{blk}**{brown}***{grey2}         B           B"
-260 print"B       {brown}********{grey2}          B           B"
-270 print"B                         B           B"
-280 print"B                         B           B"
-290 print"B                         B           B"
-300 print"B                         B           B"
-310 print"B                         B           B"
-320 print"B                         B           B"
-330 print"*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+70 dim cl$(23)
 
-1000 if ft$="0" then 5000
-1010 if mt$="0" then 6000
-1410 get k$:if k$= "" then 1500
+100 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+110 cl$(1)="{grey2}B{wht} you have "
+120 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
+130 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*"
+140 cl$(4)="B                         B"
+150 cl$(5)="B       {brown}********{grey2}          *CCCCCCCCCCC*"
+160 cl$(6)="B      {brown}*******{blk}**{brown}*{grey2}         B"
+170 cl$(7)="B     {brown}***{blk}*{brown}********{grey2}        B"
+180 cl$(8)="B    {brown}***{blk}**{brown}*********{grey2}       B"
+190 cl$(9)="B    {brown}********{blk}**{brown}****{grey2}       B"
+200 cl$(10)="B    {brown}********{blk}**{brown}****{grey2}       *CCCCCCCCCCC*"
+210 cl$(11)="B    {brown}**************{grey2}       B"
+220 cl$(12)="B    {brown}*{blk}*{brown}************{grey2}       B"
+230 cl$(13)="B    {brown}*************{brown}*{grey2}       B"
+240 cl$(14)="B     {brown}******{blk}**{brown}****{grey2}        B"
+250 cl$(15)="B      {brown}*****{blk}**{brown}***{grey2}         B"
+260 cl$(16)="B       {brown}********{grey2}          B"
+270 cl$(17)="B                         B"
+280 cl$(18)="B                         B"
+290 cl$(19)="B                         B"
+300 cl$(20)="B                         *CCCCCCCCCCC*"
+310 cl$(21)="B                         B{wht}           {grey2}B"
+320 cl$(22)="B                         B{wht}           {grey2}B"
+330 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+
+400 print cl$(0)
+410 print cl$(1)int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
+420 print cl$(2)"{wht}"ca"        {grey2}B"
+430 print cl$(3)"{wht}cost:      {grey2}B"
+440 print cl$(4)"{wht}"c1"       {grey2}B"
+450 print cl$(5)
+460 print cl$(6)"{wht}grandma(g) {grey2}B"
+470 print cl$(7)"{wht}"ga"        {grey2}B"
+480 print cl$(8)"{wht}cost:      {grey2}B"
+490 print cl$(9)"{wht}"c2"      {grey2}B"
+500 print cl$(10)
+510 print cl$(11)"           B"
+520 print cl$(12)"           B"
+530 print cl$(13)"           B"
+540 print cl$(14)"           B"
+550 print cl$(15)"           B"
+560 print cl$(16)"           B"
+570 print cl$(17)"           B"
+580 print cl$(18)"           B"
+590 print cl$(19)"           B"
+600 print cl$(20)
+610 print cl$(21)
+620 print cl$(22)
+640 print cl$(23)
+
+1000 if ft$="0" then 10000
+1010 if mt$="0" then 11000
+1410 get k$:if k$= "" then 1900
 1415 if k$=" " then 2000
 1420 if k$="c" then 3000
 1430 if k$="g" then 4000
-1440 if k$="f" then 5500
-1450 if k$="m" then 6500
+1440 if k$="f" then 5000
+1450 if k$="m" then 6000
 
-1500 cc=cc+cg
-1510 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-1520 goto 1000
+1890 rem start of auto add
 
 
+1900 cc=cc+cg
+1910 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
+1920 goto 1000
+
+
+1990 rem start of 'clicking'
 
 
 2000 cc=cc+1
@@ -50,79 +80,91 @@
 2020 goto 1000
 
 
+2990 start of cursor
 
 
 3000 if cc<c1 then 1000
 3010 cc=cc-c1
-3015 print"{home}"ds$"B{wht} you have                ":rem stops from messing up the counter
-3025 print"{home}"ds$ds$l3$ca"   "
-3030 cg=cg+.04
+3015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
+3025 print"{home}{grey2}"ds$ds$cl$(2)ca
+3030 cg=cg+.05
 3040 cc=cc+cg
 3050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 3060 ca=ca+1
-3065 print"{home}"ds$ds$l3$ca
+3065 print"{home}{grey2}"ds$ds$cl$(2)"{wht}"ca
 3070 print"{home}"ds$ds$
 3075 goto 1000
 
 
+3990 start of grandma
 
 
 4000 if cc<c2 then 1000
 4010 cc=cc-c2
-4015 print"{home}"ds$"B you have                ":rem stops from messing up the counter
+4015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
 3020 ga=ga+1
-3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{grey2}B     {brown}***{blk}*{brown}********{grey2}        B{wht}"ga
+3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(7)"{wht}"ga
 4030 cg=cg+.05
 4040 cc=cc+cg
 4050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 4060 goto 1000
 
 
-
-5000 if cc<400 then 1010
-5010 ft$="1"
-5020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B    {brown}**************{grey2}       B{wht}farm(f)    {grey2}B"
-5030 print"B    {brown}*{blk}*{brown}************{grey2}       B{wht}"fa"        {grey2}B"
-5040 print"B    {brown}*************{brown}*{grey2}       B{wht}cost:      {grey2}B"
-5050 print"B     {brown}******{blk}**{brown}****{grey2}        B{wht}"c3"     {grey2}B"
-5060 print"B      {brown}*****{blk}**{brown}***{grey2}         *CCCCCCCCCCC*"
-5070 goto 1010
-
-5500 if cc<c3 then 1000
-5510 cc=cc-c3
-5515 print"{home}"ds$"B{wht} you have                ":rem stops from messing up the counter
-5520 fa=fa+1
-5525 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B    {brown}*{blk}*{brown}************{grey2}       B{wht}"fa
-5530 cg=cg+.06
-5535 cc=cc+cg
-5540 print"{home}"ds$"B{wht} you have "int(cc)
-5550 goto 1000
+4990 start of farms
 
 
+5000 if cc<c3 then 1000
+5010 cc=cc-c3
+5015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
+5020 fa=fa+1
+5025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(12)"{wht}"fa
+5030 cg=cg+.06
+5035 cc=cc+cg
+5040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
+5050 goto 1000
+
+
+5990 start of mines
+
+
+6000 if cc<c4 then 1000
+6010 cc=cc-c4
+6015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
+6020 ma=ma+1
+6025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(17)"{wht}"ma
+6030 cg=cg+.1
+6035 cc=cc+cg
+6040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
+6050 goto 1000 
+
+
+9999 start of unlockable item texts
+
+
+10000 if cc<400 then 1010
+10010 ft$="1"
+10015 cl$(15)="B      {brown}*****{blk}**{brown}***{grey2}         *"
+10020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B    {brown}**************{grey2}       B{wht}farm(f)    {grey2}B"
+10030 printcl$(12)"{wht}"fa"        {grey2}B"
+10040 printcl$(13)"{wht}cost:      {grey2}B"
+10050 printcl$(14)"{wht}"c3"     {grey2}B"
+10060 printcl$(15)"CCCCCCCCCCC*"
+10070 goto 1010
+
+11000 if cc<6000 then 1410
+11010 mt$="1"
+11020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(16)"{wht}mine(m)    {grey2}B"
+11030 printcl$(17)"{wht}"ma"        {grey2}B"
+11040 printcl$(18)"{wht}cost:      {grey2}B"
+11050 printcl$(19)"{wht}"c4"    {grey2}B"
+11060 printcl$(20)
+11070 goto 1410
 
 
 
 
 
 
-6000 if cc<6000 then 1410
-6010 mt$="1"
-6020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B       {brown}********{grey2}          B{wht}mine(m)    {grey2}B"
-6030 print"B                         B{wht}"ma"        {grey2}B"
-6040 print"B                         B{wht}cost:      {grey2}B"
-6050 print"B                         B{wht}"c4"    {grey2}B"
-6060 print"B                         *CCCCCCCCCCC*"
-6070 goto 1410
-
-6500 if cc<c4 then 1000
-6510 cc=cc-c4
-6515 print"{home}"ds$"B{wht} you have                ":rem stops from messing up the counter
-6520 ma=ma+1
-6525 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B                         B{wht}"ma
-6530 cg=cg+.07
-6535 cc=cc+cg
-6540 print"{home}"ds$"B{wht} you have "int(cc)
-6550 goto 1000 
 
 
 
