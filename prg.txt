@@ -193,6 +193,57 @@
 
 
 
+30000
+30000 print "{clear}{home}"
+30005 print ul$(1)
+30010 print ul$(2)
+30020 print ul$(3)
+30030 print ul$(1)
+30040 print ul$(4)
+30050 print ul$(5)
+30060 print ul$(1)
+30070 print ul$(6)
+30080 print ul$(7)
+30090 print ul$(1)
+30100 print ul$(8)
+30110 print ul$(9)
+30120 print ul$(1)
+30130 print ul$(10)
+30140 print ul$(11)
+30150 print ul$(1)
+30160 print ul$(12)
+30170 print ul$(13)
+30180 print ul$(1)
+30190 print ul$(14)
+30200 print ul$(15)
+30210 print ul$(1)
+30220 print ul$(16)
+30230 print ul$(1)
+
+1240 get k$:if k$=""then 1240
+1250 if k$="1" then su$="1"
+1260 if k$="2" then su$="2"
+1270 if k$="3" then su$="3"
+1280 if k$="4" then su$="4"
+1290 if k$="5" then su$="5"
+1300 if k$="6" then su$="6"
+1310 if k$="7" then su$="7"
+1999 
+
+2000 rem do 'if cc <'
+2010 ul$(2)=ul$(4):ul$(3)=ul$(5):ul$(4)=ul$(6):ul$(5)=ul$(7):ul$(6)=ul$(8):ul$(7)=ul$(9):ul$(8)=ul$(10):ul$(9)=ul$(11):ul$(10)=ul$(12):ul$(11)=ul$(13):ul$(12)=ul$(14):ul$(13)=ul$(15):ul$(14)=ul$(0):ul$(15)=ul$(0)
+2020 
+
+
+
+
+
+
+
+
+
+
+
 
 
 

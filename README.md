@@ -24,10 +24,11 @@ Cookie-Clicker-C64 (or CC64 for short) is a Cookie clicker clone for the Commodo
 
 ### Credits and Notes
 
-Credits: [Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)
+Credits: [@Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)
 
-Note: Due to the way I have everything set up my commits will appear as commits by drskinner.
-
+Note: 
+- Due to the way I have everything set up my commits will appear as commits by drskinner.
+- Editing program lines larger than 80 characters in CBM BASIC will result in parts of them being deleted.
 
 
 

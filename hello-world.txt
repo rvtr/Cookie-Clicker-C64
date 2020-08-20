@@ -1,0 +1,4 @@
+0 rem !to "build/hello-world.prg"
+10 print"hello world"
+
+
