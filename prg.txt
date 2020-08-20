@@ -4,56 +4,75 @@
 50 ds$=chr$(17):rem cursor down
 60 rs$=chr$(29):rem cursor right
 70 dim cl$(23)
+80 dim ul$(23)
 
-100 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
-110 cl$(1)="{grey2}B{wht} you have "
-120 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
-130 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*"
-140 cl$(4)="B                         B"
-150 cl$(5)="B       {brown}********{grey2}          *CCCCCCCCCCC*"
-160 cl$(6)="B      {brown}*******{blk}**{brown}*{grey2}         B"
-170 cl$(7)="B     {brown}***{blk}*{brown}********{grey2}        B"
-180 cl$(8)="B    {brown}***{blk}**{brown}*********{grey2}       B"
-190 cl$(9)="B    {brown}********{blk}**{brown}****{grey2}       B"
-200 cl$(10)="B    {brown}********{blk}**{brown}****{grey2}       *CCCCCCCCCCC*"
-210 cl$(11)="B    {brown}**************{grey2}       B"
-220 cl$(12)="B    {brown}*{blk}*{brown}************{grey2}       B"
-230 cl$(13)="B    {brown}*************{brown}*{grey2}       B"
-240 cl$(14)="B     {brown}******{blk}**{brown}****{grey2}        B"
-250 cl$(15)="B      {brown}*****{blk}**{brown}***{grey2}         B"
-260 cl$(16)="B       {brown}********{grey2}          B"
-270 cl$(17)="B                         B"
-280 cl$(18)="B                         B"
-290 cl$(19)="B                         B"
-300 cl$(20)="B                         *CCCCCCCCCCC*"
-310 cl$(21)="B                         B{wht}           {grey2}B"
-320 cl$(22)="B                         B{wht}           {grey2}B"
-330 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+110 ul$(0) = "B                                    B"
+120 ul$(1) = "*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
+130 ul$(2) = "Bitem 1                              B"
+140 ul$(3) = "Bdesc 1                              B"
+150 ul$(4) = "Bitem 2                              B"
+160 ul$(5) = "Bdesc 2                              B"
+170 ul$(6) = "Bitem 3                              B"
+180 ul$(7) = "Bdesc 3                              B"
+190 ul$(8) = "Bitem 4                              B"
+200 ul$(9) = "Bdesc 4                              B"
+210 ul$(10) = "Bitem 5                              B"
+220 ul$(11) = "Bdesc 5                              B"
+230 ul$(12) = "Bitem 6                              B"
+240 ul$(13) = "Bdesc 6                              B"
+250 ul$(14) = "Bitem 7                              B"
+260 ul$(15) = "Bdesc 7                              B"
+270 ul$(16) = "B       press 'r' to return          B"
 
-400 print cl$(0)
-410 print cl$(1)int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
-420 print cl$(2)"{wht}"ca"        {grey2}B"
-430 print cl$(3)"{wht}cost:      {grey2}B"
-440 print cl$(4)"{wht}"c1"       {grey2}B"
-450 print cl$(5)
-460 print cl$(6)"{wht}grandma(g) {grey2}B"
-470 print cl$(7)"{wht}"ga"        {grey2}B"
-480 print cl$(8)"{wht}cost:      {grey2}B"
-490 print cl$(9)"{wht}"c2"      {grey2}B"
-500 print cl$(10)
-510 print cl$(11)"           B"
-520 print cl$(12)"           B"
-530 print cl$(13)"           B"
-540 print cl$(14)"           B"
-550 print cl$(15)"           B"
-560 print cl$(16)"           B"
-570 print cl$(17)"           B"
-580 print cl$(18)"           B"
-590 print cl$(19)"           B"
-600 print cl$(20)
-610 print cl$(21)
-620 print cl$(22)
-640 print cl$(23)
+400 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+410 cl$(1)="{grey2}B{wht} you have "
+420 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
+430 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*"
+440 cl$(4)="B                         B"
+450 cl$(5)="B       {brown}********{grey2}          *CCCCCCCCCCC*"
+460 cl$(6)="B      {brown}*******{blk}**{brown}*{grey2}         B"
+470 cl$(7)="B     {brown}***{blk}*{brown}********{grey2}        B"         rem start here. (don't ask)
+480 cl$(8)="B    {brown}***{blk}**{brown}*********{grey2}       B"
+490 cl$(9)="B    {brown}********{blk}**{brown}****{grey2}       B"
+500 cl$(10)="B    {brown}********{blk}**{brown}****{grey2}       *CCCCCCCCCCC*"
+510 cl$(11)="B    {brown}**************{grey2}       B"
+520 cl$(12)="B    {brown}*{blk}*{brown}************{grey2}       B"
+530 cl$(13)="B    {brown}*************{brown}*{grey2}       B"
+540 cl$(14)="B     {brown}******{blk}**{brown}****{grey2}        B"
+550 cl$(15)="B    {brown}*{blk}*{brown}************{grey2}       B"
+560 cl$(16)="B    {brown}*************{brown}*{grey2}       B"
+570 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B"
+580 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B"
+590 cl$(19)="B       {brown}********{grey2}          B"
+600 cl$(20)="B                         *CCCCCCCCCCC*"
+610 cl$(21)="B                         B{wht}           {grey2}B"
+630 cl$(22)="B v1.3.0                  B{wht}upgrades(u){grey2}B"
+630 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+
+700 print cl$(0)
+710 print cl$(1)int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
+720 print cl$(2)"{wht}"ca"        {grey2}B"
+730 print cl$(3)"{wht}cost:      {grey2}B"
+740 print cl$(4)"{wht}"c1"       {grey2}B"
+750 print cl$(5)
+760 print cl$(6)"{wht}grandma(g) {grey2}B"
+770 print cl$(7)"{wht}"ga"        {grey2}B"
+780 print cl$(8)"{wht}cost:      {grey2}B"
+790 print cl$(9)"{wht}"c2"      {grey2}B"
+800 print cl$(10)
+810 print cl$(11)"           B"
+820 print cl$(12)"           B"
+830 print cl$(13)"           B"
+840 print cl$(14)"           B"
+850 print cl$(15)"           B"
+860 print cl$(16)"           B"
+870 print cl$(17)"           B"
+880 print cl$(18)"           B"
+890 print cl$(19)"           B"
+900 print cl$(20)
+910 print cl$(21)
+920 print cl$(22)
+940 print cl$(23)
 
 1000 if ft$="0" then 10000
 1010 if mt$="0" then 11000
