@@ -1,5 +1,5 @@
 0 rem !to "build/cookie.prg"
-10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0"
+10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0":aa=1
 20 c1=15:c2=100:c3=1100:c4=12000
 50 ds$=chr$(17):rem cursor down
 60 rs$=chr$(29):rem cursor right
@@ -8,12 +8,12 @@
 
 110 ul$(0) = "B                                    B"
 120 ul$(1) = "*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
-130 ul$(2) = "Bitem 1                              B"
-140 ul$(3) = "Bdesc 1                              B"
-150 ul$(4) = "Bitem 2                              B"
+130 ul$(2) = "Breinforced index finger (1)         B"
+140 ul$(3) = "Bthe mouse and cursors are twice as  B"
+150 ul$(4) = "Befficient. 'prod prod'   100 C      B"
 160 ul$(5) = "Bdesc 2                              B"
-170 ul$(6) = "Bitem 3                              B"
-180 ul$(7) = "Bdesc 3                              B"
+170 ul$(6) = "B                                    B"
+180 ul$(7) = "BGrandmas are twice as efficient.    B"
 190 ul$(8) = "Bitem 4                              B"
 200 ul$(9) = "Bdesc 4                              B"
 210 ul$(10) = "Bitem 5                              B"
@@ -29,16 +29,16 @@
 420 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
 430 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*"
 440 cl$(4)="B                         B"
-450 cl$(5)="B       {brown}********{grey2}          *CCCCCCCCCCC*"
-460 cl$(6)="B      {brown}*******{blk}**{brown}*{grey2}         B"
-470 cl$(7)="B     {brown}***{blk}*{brown}********{grey2}        B"         rem start here. (don't ask)
-480 cl$(8)="B    {brown}***{blk}**{brown}*********{grey2}       B"
-490 cl$(9)="B    {brown}********{blk}**{brown}****{grey2}       B"
-500 cl$(10)="B    {brown}********{blk}**{brown}****{grey2}       *CCCCCCCCCCC*"
-510 cl$(11)="B    {brown}**************{grey2}       B"
-520 cl$(12)="B    {brown}*{blk}*{brown}************{grey2}       B"
-530 cl$(13)="B    {brown}*************{brown}*{grey2}       B"
-540 cl$(14)="B     {brown}******{blk}**{brown}****{grey2}        B"
+450 cl$(5)="B                                       *CCCCCCCCCCC*"
+460 cl$(6)="B                                                   B"
+470 cl$(7)="B                                                   B"
+480 cl$(8)="B       {brown}********{grey2}          B"
+490 cl$(9)="B      {brown}*******{blk}**{brown}*{grey2}         B"
+500 cl$(10)="B     {brown}***{blk}*{brown}********{grey2}        *CCCCCCCCCCC*"
+510 cl$(11)="B    {brown}***{blk}**{brown}*********{grey2}       B"
+520 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B"
+530 cl$(13)="B    {brown}********{blk}**{brown}****{grey2}       B"
+540 cl$(14)="B    {brown}**************{grey2}       B"
 550 cl$(15)="B    {brown}*{blk}*{brown}************{grey2}       B"
 560 cl$(16)="B    {brown}*************{brown}*{grey2}       B"
 570 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B"
@@ -76,6 +76,7 @@
 
 1000 if ft$="0" then 10000
 1010 if mt$="0" then 11000
+
 1410 get k$:if k$= "" then 1900
 1415 if k$=" " then 2000
 1420 if k$="c" then 3000
@@ -94,7 +95,7 @@
 1990 rem start of 'clicking'
 
 
-2000 cc=cc+1
+2000 cc=cc+aa
 2010 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 2020 goto 1000
 
@@ -105,12 +106,12 @@
 3000 if cc<c1 then 1000
 3010 cc=cc-c1
 3015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
-3025 print"{home}{grey2}"ds$ds$cl$(2)ca
+3025 print"{home}{grey2}"ds$ds$cl$(5)ca
 3030 cg=cg+.05
 3040 cc=cc+cg
 3050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 3060 ca=ca+1
-3065 print"{home}{grey2}"ds$ds$cl$(2)"{wht}"ca
+3065 print"{home}{grey2}"ds$ds$cl$(5)"{wht}"ca
 3070 print"{home}"ds$ds$
 3075 goto 1000
 
@@ -122,7 +123,7 @@
 4010 cc=cc-c2
 4015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
 3020 ga=ga+1
-3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(7)"{wht}"ga
+3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(10)"{wht}"ga
 4030 cg=cg+.05
 4040 cc=cc+cg
 4050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
@@ -136,7 +137,7 @@
 5010 cc=cc-c3
 5015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
 5020 fa=fa+1
-5025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(12)"{wht}"fa
+5025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(15)"{wht}"fa
 5030 cg=cg+.06
 5035 cc=cc+cg
 5040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
@@ -150,7 +151,7 @@
 6010 cc=cc-c4
 6015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
 6020 ma=ma+1
-6025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(17)"{wht}"ma
+6025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(20)"{wht}"ma
 6030 cg=cg+.1
 6035 cc=cc+cg
 6040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
@@ -178,64 +179,6 @@
 11050 printcl$(19)"{wht}"c4"    {grey2}B"
 11060 printcl$(20)
 11070 goto 1410
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-30000
-30000 print "{clear}{home}"
-30005 print ul$(1)
-30010 print ul$(2)
-30020 print ul$(3)
-30030 print ul$(1)
-30040 print ul$(4)
-30050 print ul$(5)
-30060 print ul$(1)
-30070 print ul$(6)
-30080 print ul$(7)
-30090 print ul$(1)
-30100 print ul$(8)
-30110 print ul$(9)
-30120 print ul$(1)
-30130 print ul$(10)
-30140 print ul$(11)
-30150 print ul$(1)
-30160 print ul$(12)
-30170 print ul$(13)
-30180 print ul$(1)
-30190 print ul$(14)
-30200 print ul$(15)
-30210 print ul$(1)
-30220 print ul$(16)
-30230 print ul$(1)
-
-1240 get k$:if k$=""then 1240
-1250 if k$="1" then su$="1"
-1260 if k$="2" then su$="2"
-1270 if k$="3" then su$="3"
-1280 if k$="4" then su$="4"
-1290 if k$="5" then su$="5"
-1300 if k$="6" then su$="6"
-1310 if k$="7" then su$="7"
-1999 
-
-2000 rem do 'if cc <'
-2010 ul$(2)=ul$(4):ul$(3)=ul$(5):ul$(4)=ul$(6):ul$(5)=ul$(7):ul$(6)=ul$(8):ul$(7)=ul$(9):ul$(8)=ul$(10):ul$(9)=ul$(11):ul$(10)=ul$(12):ul$(11)=ul$(13):ul$(12)=ul$(14):ul$(13)=ul$(15):ul$(14)=ul$(0):ul$(15)=ul$(0)
-2020 
-
-
-
 
 
 
