@@ -2,6 +2,8 @@
 
 <p align="center">
 
+<img src="https://github.com/IanSkinner1982/Cookie-Clicker-C64/blob/master/Banner.png"/>
+
 <a href="https://discord.com/invite/kJac2ty">
         <img src="https://img.shields.io/discord/704065693246685225?color=purple&label=Discord&logo=Discord&style=plastic"
             alt="Chat on Discord">
