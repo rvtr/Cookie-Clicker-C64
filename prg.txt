@@ -69,7 +69,7 @@
 
 1890 rem start of auto add
 
-1900 rem cc=cc+cg
+1900 cc=cc+cg
 1910 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 1920 goto 1000
 
