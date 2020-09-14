@@ -4,49 +4,30 @@
 50 ds$=chr$(17):rem cursor down
 60 rs$=chr$(29):rem cursor right
 70 dim cl$(23)
-80 dim ul$(23)
-
-110 ul$(0) = "B                                    B"
-120 ul$(1) = "*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
-130 ul$(2) = "Breinforced index finger (1)         B"
-140 ul$(3) = "Bthe mouse and cursors are twice as  B"
-150 ul$(4) = "Befficient. 'prod prod'   100 C      B"
-160 ul$(5) = "Bdesc 2                              B"
-170 ul$(6) = "B                                    B"
-180 ul$(7) = "BGrandmas are twice as efficient.    B"
-190 ul$(8) = "Bitem 4                              B"
-200 ul$(9) = "Bdesc 4                              B"
-210 ul$(10) = "Bitem 5                              B"
-220 ul$(11) = "Bdesc 5                              B"
-230 ul$(12) = "Bitem 6                              B"
-240 ul$(13) = "Bdesc 6                              B"
-250 ul$(14) = "Bitem 7                              B"
-260 ul$(15) = "Bdesc 7                              B"
-270 ul$(16) = "B       press 'r' to return          B"
 
 400 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
 410 cl$(1)="{grey2}B{wht} you have "
 420 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
 430 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*"
 440 cl$(4)="B                         B"
-450 cl$(5)="B                                       *CCCCCCCCCCC*"
-460 cl$(6)="B                                                   B"
-470 cl$(7)="B                                                   B"
+450 cl$(5)="B                         *CCCCCCCCCCC*"
+460 cl$(6)="B                         B"
+470 cl$(7)="B                         B"
 480 cl$(8)="B       {brown}********{grey2}          B"
 490 cl$(9)="B      {brown}*******{blk}**{brown}*{grey2}         B"
 500 cl$(10)="B     {brown}***{blk}*{brown}********{grey2}        *CCCCCCCCCCC*"
-510 cl$(11)="B    {brown}***{blk}**{brown}*********{grey2}       B"
-520 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B"
-530 cl$(13)="B    {brown}********{blk}**{brown}****{grey2}       B"
-540 cl$(14)="B    {brown}**************{grey2}       B"
-550 cl$(15)="B    {brown}*{blk}*{brown}************{grey2}       B"
-560 cl$(16)="B    {brown}*************{brown}*{grey2}       B"
-570 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B"
-580 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B"
+510 cl$(11)="B    {brown}***{blk}**{brown}*********{grey2}       B           B"
+520 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B           B"
+530 cl$(13)="B    {brown}********{blk}**{brown}****{grey2}       B           B"
+540 cl$(14)="B    {brown}**************{grey2}       B           B"
+550 cl$(15)="B    {brown}*{blk}*{brown}************{grey2}       B           B" 
+560 cl$(16)="B    {brown}*************{brown}*{grey2}       B           B"
+570 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B           B"
+580 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B           B"
 590 cl$(19)="B       {brown}********{grey2}          B"
 600 cl$(20)="B                         *CCCCCCCCCCC*"
-610 cl$(21)="B                         B{wht}           {grey2}B"
-630 cl$(22)="B v1.3.0                  B{wht}upgrades(u){grey2}B"
+610 cl$(21)="B                         B{wht}settings(s){grey2}B"
+630 cl$(22)="B v1.3.0                  B{grey1}upgrades(u){grey2}B"
 630 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
 
 700 print cl$(0)
@@ -60,15 +41,15 @@
 780 print cl$(8)"{wht}cost:      {grey2}B"
 790 print cl$(9)"{wht}"c2"      {grey2}B"
 800 print cl$(10)
-810 print cl$(11)"           B"
-820 print cl$(12)"           B"
-830 print cl$(13)"           B"
-840 print cl$(14)"           B"
-850 print cl$(15)"           B"
-860 print cl$(16)"           B"
-870 print cl$(17)"           B"
-880 print cl$(18)"           B"
-890 print cl$(19)"           B"
+810 print cl$(11)
+820 print cl$(12)
+830 print cl$(13)
+840 print cl$(14)
+850 print cl$(15)
+860 print cl$(16)
+870 print cl$(17)
+880 print cl$(18)
+890 print cl$(19)
 900 print cl$(20)
 910 print cl$(21)
 920 print cl$(22)
@@ -77,7 +58,8 @@
 1000 if ft$="0" then 10000
 1010 if mt$="0" then 11000
 
-1410 get k$:if k$= "" then 1900
+1410 get k$:if k$= "" then 1410 rem then 1900
+
 1415 if k$=" " then 2000
 1420 if k$="c" then 3000
 1430 if k$="g" then 4000
@@ -123,7 +105,7 @@
 4010 cc=cc-c2
 4015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
 3020 ga=ga+1
-3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(10)"{wht}"ga
+3025 print"{home}"ds$ds$ds$ds$ds$ds$ds$cl$(7)"{grey2}"cl$(10)"{wht}"ga
 4030 cg=cg+.05
 4040 cc=cc+cg
 4050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
@@ -137,7 +119,7 @@
 5010 cc=cc-c3
 5015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
 5020 fa=fa+1
-5025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(15)"{wht}"fa
+5025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}"cl$(12)"{wht}"fa
 5030 cg=cg+.06
 5035 cc=cc+cg
 5040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
@@ -158,18 +140,24 @@
 6050 goto 1000 
 
 
-9999 start of unlockable item texts
+9999 start of unlockable building text
 
 
 10000 if cc<400 then 1010
 10010 ft$="1"
-10015 cl$(15)="B      {brown}*****{blk}**{brown}***{grey2}         *"
-10020 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$"{grey2}B    {brown}**************{grey2}       B{wht}farm(f)    {grey2}B"
-10030 printcl$(12)"{wht}"fa"        {grey2}B"
-10040 printcl$(13)"{wht}cost:      {grey2}B"
-10050 printcl$(14)"{wht}"c3"     {grey2}B"
-10060 printcl$(15)"CCCCCCCCCCC*"
-10070 goto 1010
+10020 cl$(10)="{grey2}B    {brown}***{blk}**{brown}*********{grey2}       B{wht}farm(f)    {grey2}B"
+10025 print ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(10)
+10030 cl$(11)="B    {brown}********{blk}**{brown}****{grey2}       B{wht} 0         {grey2}B"
+10035 print cl$(11)
+10040 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B{wht}cost:      {grey2}B"
+10045 print cl$(12)
+10050 cl$(13)="B    {brown}**************{grey2}       B{wht} 1100      {grey2}B"
+10055 print cl$(13)
+10060 cl$(14)="B    {brown}*{blk}*{brown}************{grey2}       *CCCCCCCCCCC*" 
+10065 print cl$(14)
+10170 goto 1010
+
+
 
 11000 if cc<6000 then 1410
 11010 mt$="1"
@@ -182,7 +170,8 @@
 
 
 
-
+30000 rem settings start here
+30010 
 
 
 
