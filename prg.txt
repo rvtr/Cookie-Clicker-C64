@@ -31,6 +31,8 @@
 630 cl$(22)="B v2.0.1                  B{grey1}upgrades(u){grey2}B"
 630 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
 
+650 ft$="0":mt$="0"
+
 700 print cl$(0)
 710 print cl$(1)int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
 720 print cl$(2)"{wht}"ca"        {grey2}B"
@@ -82,7 +84,7 @@
 2020 goto 1000
 
 
-2990 start of cursor
+2990 rem start of cursor CLEAN THIS CODE FOR 2.0.1
 
 
 3000 if cc<c1 then 1000
@@ -98,7 +100,7 @@
 3075 goto 1000
 
 
-3990 start of grandma
+3990 rem start of grandma CLEAN THIS CODE FOR 2.0.1
 
 
 4000 if cc<c2 then 1000
@@ -112,7 +114,7 @@
 4060 goto 1000
 
 
-4990 start of farms
+4990 rem start of farms
 
 
 5000 if cc<c3 then 1000
@@ -126,7 +128,7 @@
 5050 goto 1000
 
 
-5990 start of mines
+5990 rem start of mines
 
 
 6000 if cc<c4 then 1000
@@ -140,7 +142,7 @@
 6050 goto 1000 
 
 
-9999 start of unlockable building text
+9999 rem start of unlockable building text
 
 
 10000 if cc<400 then 1010
@@ -176,4 +178,37 @@
 
 
 30000 rem settings start here
-30010 
+30010 poke53280,0:poke53281,0:sl$=chr$(163)
+
+30100 print"{clear}{grey1}*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
+30110 print"B                                     B"
+30120 print"B {wht}bakery name (b):                    {grey1}B"
+30130 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
+30140 print"B                                     B"
+30150 print"B {wht}load (l)                            {grey1}B"
+30160 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
+30170 print"B                                     B"
+30180 print"B {wht}save (s)                            {grey1}B"
+30190 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
+30200 print"B                                     B"
+30210 print"B {red}wipe save (w)                       {grey1}B"
+30220 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
+30230 print"B                                     B"
+30240 rem print"B                                     B"
+30250 rem print"B                                     B"
+30260 rem print"B                                     B"
+30270 rem print"B                                     B"
+30280 rem print"B  USE LATER IF YOU ADD MORE OPTIONS  B"
+30290 rem print"B                                     B"
+30300 rem print"B                                     B"
+30310 print"B {wht}exit settings (e)                   {grey1}B"
+30320 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
+30330 print"B                                     B"
+30340 print"*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
+
+
+
+
+
+
+
