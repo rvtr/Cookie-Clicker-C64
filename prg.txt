@@ -212,7 +212,7 @@
 31020 ifk$="l"then goto 33000
 31030 ifk$="s"then goto 34000
 31040 ifk$="w"then goto 35000
-31050 ifk$="e"then goto 400
+31050 ifk$="e"then goto 36000
 
 33000 rem loading
 
@@ -226,6 +226,7 @@
 33030 input#8,ma
 33060 close 8
 33070 print"loading complete"
+33075 poke53280,14:poke53281,6
 33080 goto 400
 
 34000 rem saving 
@@ -242,6 +243,10 @@
 34070 print"saving complete"
 34080 goto 30000
 
+36000 rem exit settings
 
+36010 print"{clear}"
+36020 poke53280,14:poke53281,6
+36030 goto 400
 
 
