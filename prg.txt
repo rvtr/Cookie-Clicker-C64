@@ -1,20 +1,22 @@
 0 rem !to "build/cookie.prg"
 10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0"
-20 c1=15:c2=100:c3=1100:c4=12000
+20 if dm$<>"1"thendim cl$(23)
+30 dm$="1"
 50 ds$=chr$(17):rem cursor down
 60 rs$=chr$(29):rem cursor right
 65 ls$=chr$(157):rem cursor left
-70 dim cl$(23)
+70 c1=15:c2=100:c3=1100:c4=12000
+80 print"{clear}{home}"
 
 400 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
 410 cl$(1)="{grey2}B{wht} you have "
 420 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
-430 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*"
-440 cl$(4)="B                         B"
+430 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*{wht}cost:      {grey2}B"
+440 cl$(4)="B                  bakery B"
 450 cl$(5)="B                         *CCCCCCCCCCC*"
-460 cl$(6)="B                         B"
+460 cl$(6)="B                         B{wht}grandma(g) {grey2}B"
 470 cl$(7)="B                         B"
-480 cl$(8)="B       {brown}********{grey2}          B"
+480 cl$(8)="B       {brown}********{grey2}          B{wht}cost:      {grey2}B"
 490 cl$(9)="B      {brown}*******{blk}**{brown}*{grey2}         B"
 500 cl$(10)="B     {brown}***{blk}*{brown}********{grey2}        *CCCCCCCCCCC*"
 510 cl$(11)="B    {brown}***{blk}**{brown}*********{grey2}       B           B"
@@ -28,21 +30,21 @@
 590 cl$(19)="B       {brown}********{grey2}          B           B"
 600 cl$(20)="B                         *CCCCCCCCCCC*"
 610 cl$(21)="B                         B{wht}settings(s){grey2}B"
-630 cl$(22)="B v2.0.1                  B{grey1}upgrades(u){grey2}B"
+630 cl$(22)="B v2.9.0                  B{grey1}upgrades(u){grey2}B"
 630 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
 
-650 ft$="0":mt$="0"
+650 rem ft$="0":mt$="0"
 
 700 print cl$(0)
-710 print cl$(1)int(cc)"            {grey2}B{wht}cursor(c)  {grey2}B"
-720 print cl$(2)"{wht}"ca"        {grey2}B"
-730 print cl$(3)"{wht}cost:      {grey2}B"
-740 print cl$(4)"{wht}"c1"       {grey2}B"
+710 print cl$(1)int(cc)
+720 print cl$(2)"{wht}"ca
+730 print cl$(3)
+740 print cl$(4)"{wht}"c1
 750 print cl$(5)
-760 print cl$(6)"{wht}grandma(g) {grey2}B"
-770 print cl$(7)"{wht}"ga"        {grey2}B"
-780 print cl$(8)"{wht}cost:      {grey2}B"
-790 print cl$(9)"{wht}"c2"      {grey2}B"
+760 print cl$(6)
+770 print cl$(7)"{wht}"ga
+780 print cl$(8)
+790 print cl$(9)"{wht}"c2
 800 print cl$(10)
 810 print cl$(11):rem f
 820 print cl$(12):rem f
@@ -58,20 +60,19 @@
 920 print cl$(22)
 940 print cl$(23)
 
-1000 if ft$="0" then 10000
-1010 if mt$="0" then 11000
+950 rem stop
+
+1000 if ft$="0" then gosub 10000
+1010 if mt$="0" then gosub 11000
 
 1410 get k$:if k$= "" then 1900
-
 1415 if k$=" " then 2000
 1420 if k$="c" then 3000
 1430 if k$="g" then 4000
 1440 if k$="f" then 5000
 1450 if k$="m" then 6000
 1460 if k$="s" then 30000
-
 1890 rem start of auto add
-
 1900 cc=cc+cg
 1910 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 1920 goto 1000
@@ -146,10 +147,10 @@
 9999 rem start of unlockable building text
 
 
-10000 if cc<400 then 1010
+10000 if cc<400 then return
 10010 ft$="1"
 10020 cl$(10)="{grey2}B    {brown}***{blk}**{brown}*********{grey2}       B{wht}farm(f)    {grey2}B"
-10025 print ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(10)
+10025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(10)
 10030 cl$(11)="B    {brown}********{blk}**{brown}****{grey2}       B{wht} 0         {grey2}B"
 10035 print cl$(11)
 10040 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B{wht}cost:      {grey2}B"
@@ -158,14 +159,14 @@
 10055 print cl$(13)
 10060 cl$(14)="B    {brown}*{blk}*{brown}************{grey2}       *CCCCCCCCCCC*" 
 10065 print cl$(14)
-10070 goto 1010
+10070 return
 
 
 
-11000 if cc<6000 then 1410
+11000 if cc<6000 then return
 11010 mt$="1"
 11020 cl$(16)="{grey2}B    {brown}*************{brown}*{grey2}       B{wht}mine(m)    {grey2}B"
-11025 print ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(16)
+11025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(16)
 11030 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B{wht} 0         {grey2}B"
 11035 print cl$(17)
 11040 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B{wht}cost:      {grey2}B"
@@ -174,7 +175,7 @@
 11055 print cl$(19)
 11060 cl$(20)="B                         *CCCCCCCCCCC*" 
 11065 print cl$(20)
-11070 goto 1410
+11070 return
 
 
 
@@ -227,7 +228,7 @@
 33060 close 8
 33070 print"loading complete"
 33075 poke53280,14:poke53281,6
-33080 goto 400
+33080 goto 700
 
 34000 rem saving 
 
@@ -243,10 +244,29 @@
 34070 print"saving complete"
 34080 goto 30000
 
+35000 rem wipe save
+
+35010 print"not implemented yet!"
+35020 getk$:ifk$=""then35020
+35030 goto 36000
+
+
+
+
+
+
+
 36000 rem exit settings
 
-36010 print"{clear}"
+36010 print"{clear}{home}"
 36020 poke53280,14:poke53281,6
-36030 goto 400
+36030 gosub 10000
+36040 gosub 11000
+36050 goto 650
 
-
+60000 print cc 
+60010 print cg
+60020 print ca 
+60030 print ga 
+60040 print fa 
+60050 print ma

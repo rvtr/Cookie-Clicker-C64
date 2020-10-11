@@ -21,7 +21,7 @@
 </a>
 </p>
 
-Cookie-Clicker-C64 (or CC64 for short) is a Cookie clicker clone for the Commodore 64.
+Cookie Clicker C64 (or CC64 for short) is a Cookie clicker clone for the Commodore 64.
 
 ### How to play : 
 
@@ -29,13 +29,39 @@ Cookie-Clicker-C64 (or CC64 for short) is a Cookie clicker clone for the Commodo
 
 - Buy items by pressing the letter beside them. (the one in brackets)
 
+## Saves:
+
+Saves must be named cc64.sav and placed in the same directory as cookie.prg. (to copy the save onto a d64 file, use <a href="http://lallafa.de/blog/c64-projects/diskimagery64/" target="_blank">DiskImagery64</a>)
+<br>Currently saves are only available in the nightly builds.
+ 
+
+### Save file format:
+
+<p>
+Cookies
+<br>Cookie gain
+<br>Cursor amount
+<br>Grandma amount
+<br>Farm amount
+<br>Mine amount
+
+### Example save file:
+
+3426597
+<br>0.9823
+<br>230
+<br>54
+<br>32
+<br>1</p>
+
 ### Credits and Notes
 
-Credits: [@Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)
+Credits: 
+- [@Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)
 
-Note: 
+Notes: 
 - Due to the way I have everything set up my commits will appear as commits by drskinner.
-- Editing program lines larger than 80 characters in CBM BASIC will result in parts of them being deleted.
+- Editing program lines larger than 80 characters on the C64 (or on an emulator) will result in parts of them being deleted. 
 
 
 
