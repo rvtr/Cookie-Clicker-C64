@@ -23,11 +23,11 @@
 
 Cookie Clicker C64 (or CC64 for short) is a Cookie clicker clone for the Commodore 64.
 
-### How to play : 
+## How to play : 
 
 - Press the space bar to 'click' for cookies.
 
-- Buy items by pressing the letter beside them. (the one in brackets)
+- Buy/select items by pressing the letter beside them. (the one in brackets)
 
 ## Saves:
 
@@ -54,7 +54,7 @@ Cookies
 <br>32
 <br>1</p>
 
-### Credits and Notes
+## Credits and Notes
 
 Credits: 
 - [@Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)

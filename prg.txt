@@ -9,16 +9,16 @@
 80 print"{clear}{home}"
 
 400 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
-410 cl$(1)="{grey2}B{wht} you have "
+410 cl$(1)="{grey2}B{wht} you have                {grey2}B{wht}cursor(c)  {grey2}B"
 420 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
-430 cl$(3)="*CCCCCCCCCCCCCCCCCCCCCCCCC*{wht}cost:      {grey2}B"
-440 cl$(4)="B                  bakery B"
-450 cl$(5)="B                         *CCCCCCCCCCC*"
-460 cl$(6)="B                         B{wht}grandma(g) {grey2}B"
-470 cl$(7)="B                         B"
-480 cl$(8)="B       {brown}********{grey2}          B{wht}cost:      {grey2}B"
-490 cl$(9)="B      {brown}*******{blk}**{brown}*{grey2}         B"
-500 cl$(10)="B     {brown}***{blk}*{brown}********{grey2}        *CCCCCCCCCCC*"
+430 cl$(3)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*{wht}cost:      {grey2}B"
+440 cl$(4)="{grey2}B                  bakery B"
+450 cl$(5)="{grey2}B                         *CCCCCCCCCCC*"
+460 cl$(6)="{grey2}B                         B{wht}grandma(g) {grey2}B"
+470 cl$(7)="{grey2}B                         B"
+480 cl$(8)="{grey2}B       {brown}********{grey2}          B{wht}cost:      {grey2}B"
+490 cl$(9)="{grey2}B      {brown}*******{blk}**{brown}*{grey2}         B"
+500 cl$(10)="{grey2}B     {brown}***{blk}*{brown}********{grey2}        *CCCCCCCCCCC*"
 510 cl$(11)="B    {brown}***{blk}**{brown}*********{grey2}       B           B"
 520 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B           B"
 530 cl$(13)="B    {brown}********{blk}**{brown}****{grey2}       B           B"
@@ -36,15 +36,15 @@
 650 rem ft$="0":mt$="0"
 
 700 print cl$(0)
-710 print cl$(1)int(cc)
-720 print cl$(2)"{wht}"ca
+710 print cl$(1)ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$int(cc)
+720 print cl$(2)"{wht} 0         {grey2}B"ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ca$
 730 print cl$(3)
-740 print cl$(4)"{wht}"c1
+740 print cl$(4)"{wht}15         {grey2}B"
 750 print cl$(5)
 760 print cl$(6)
-770 print cl$(7)"{wht}"ga
+770 print cl$(7)"{wht} 0         {grey2}B"ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ga$
 780 print cl$(8)
-790 print cl$(9)"{wht}"c2
+790 print cl$(9)"{wht}100        {grey2}B"
 800 print cl$(10)
 810 print cl$(11):rem f
 820 print cl$(12):rem f
@@ -143,14 +143,13 @@
 6040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
 6050 goto 1000 
 
-
-9999 rem start of unlockable building text
-
+9999 rem start of unlockable building text 
 
 10000 if cc<400 then return
 10010 ft$="1"
 10020 cl$(10)="{grey2}B    {brown}***{blk}**{brown}*********{grey2}       B{wht}farm(f)    {grey2}B"
-10025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(10)
+10025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$
+10026 print cl$(10)
 10030 cl$(11)="B    {brown}********{blk}**{brown}****{grey2}       B{wht} 0         {grey2}B"
 10035 print cl$(11)
 10040 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B{wht}cost:      {grey2}B"
@@ -161,12 +160,11 @@
 10065 print cl$(14)
 10070 return
 
-
-
 11000 if cc<6000 then return
 11010 mt$="1"
 11020 cl$(16)="{grey2}B    {brown}*************{brown}*{grey2}       B{wht}mine(m)    {grey2}B"
-11025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$cl$(16)
+11025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$
+11026 print cl$(16)
 11030 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B{wht} 0         {grey2}B"
 11035 print cl$(17)
 11040 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B{wht}cost:      {grey2}B"
@@ -176,8 +174,6 @@
 11060 cl$(20)="B                         *CCCCCCCCCCC*" 
 11065 print cl$(20)
 11070 return
-
-
 
 30000 rem settings start here
 30010 poke53280,0:poke53281,0:sl$=chr$(163)
@@ -228,7 +224,7 @@
 33060 close 8
 33070 print"loading complete"
 33075 poke53280,14:poke53281,6
-33080 goto 700
+33080 goto 650
 
 34000 rem saving 
 
@@ -250,21 +246,27 @@
 35020 getk$:ifk$=""then35020
 35030 goto 36000
 
-
-
-
-
-
-
 36000 rem exit settings
 
-36010 print"{clear}{home}"
+36010 print"{clear}"
 36020 poke53280,14:poke53281,6
-36030 gosub 10000
-36040 gosub 11000
-36050 goto 650
+36030 rem gosub 10000
+36040 rem gosub 11000
+36050 goto 700
 
-60000 print cc 
+
+
+
+
+
+
+
+
+
+
+60000 rem save debug
+
+60005 print cc 
 60010 print cg
 60020 print ca 
 60030 print ga 
