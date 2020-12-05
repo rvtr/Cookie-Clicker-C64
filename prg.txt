@@ -1,274 +1,60 @@
 0 rem !to "build/cookie.prg"
-10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0"
-20 if dm$<>"1"thendim cl$(23)
-30 dm$="1"
-50 ds$=chr$(17):rem cursor down
-60 rs$=chr$(29):rem cursor right
-65 ls$=chr$(157):rem cursor left
-70 c1=15:c2=100:c3=1100:c4=12000
-80 print"{clear}{home}"
+10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0":bn$="someone"
+20 ds$=chr$(17):rem cursor down
+30 rs$=chr$(29):rem cursor right
+40 ls$=chr$(157):rem cursor left
+50 c1=15:c2=100:c3=1100:c4=12000
+99 print"{clear}{home}"
 
-400 cl$(0)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
-410 cl$(1)="{grey2}B{wht} you have                {grey2}B{wht}cursor(c)  {grey2}B"
-420 cl$(2)="{grey2}B{wht} cookies                 {grey2}B"
-430 cl$(3)="{grey2}*CCCCCCCCCCCCCCCCCCCCCCCCC*{wht}cost:      {grey2}B"
-440 cl$(4)="{grey2}B                  bakery B"
-450 cl$(5)="{grey2}B                         *CCCCCCCCCCC*"
-460 cl$(6)="{grey2}B                         B{wht}grandma(g) {grey2}B"
-470 cl$(7)="{grey2}B                         B"
-480 cl$(8)="{grey2}B       {brown}********{grey2}          B{wht}cost:      {grey2}B"
-490 cl$(9)="{grey2}B      {brown}*******{blk}**{brown}*{grey2}         B"
-500 cl$(10)="{grey2}B     {brown}***{blk}*{brown}********{grey2}        *CCCCCCCCCCC*"
-510 cl$(11)="B    {brown}***{blk}**{brown}*********{grey2}       B           B"
-520 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B           B"
-530 cl$(13)="B    {brown}********{blk}**{brown}****{grey2}       B           B"
-540 cl$(14)="B    {brown}**************{grey2}       B           B"
-550 cl$(15)="B    {brown}*{blk}*{brown}************{grey2}       B           B" 
-560 cl$(16)="B    {brown}*************{brown}*{grey2}       B           B"
-570 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B           B"
-580 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B           B"
-590 cl$(19)="B       {brown}********{grey2}          B           B"
-600 cl$(20)="B                         *CCCCCCCCCCC*"
-610 cl$(21)="B                         B{wht}settings(s){grey2}B"
-630 cl$(22)="B v2.9.0                  B{grey1}upgrades(u){grey2}B"
-630 cl$(23)="*CCCCCCCCCCCCCCCCCCCCCCCCC*CCCCCCCCCCC*"
+1000 print"{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
+1010 print"{grey2}B you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
+1020 print"{grey2}B cookies                 {grey2}B{wht} "ca"       {grey2}B"
+1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
+1040 print"{grey2}B                         {grey2}B{wht}15         {grey2}B"
+1050 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
+1060 print"{grey2}B                         {grey2}B{wht}grandma(g) {grey2}B"
+1070 print"{grey2}B                         {grey2}B{wht} "ga"       {grey2}B"
+1080 print"{grey2}B       {brown}********          {grey2}B{wht}cost:      {grey2}B"
+1090 print"{grey2}B      {brown}*******{blk}**{brown}*         {grey2}B{wht}100        {grey2}B"
+1100 print"{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
+1110 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B           B"
+1120 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B           B"
+1130 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B           B"
+1140 print"{grey2}B    {brown}**************       {grey2}B           B"
+1150 print"{grey2}B    {brown}*{blk}*{brown}************       {grey2}B           B"
+1160 print"{grey2}B    {brown}*************{brown}*       {grey2}B           B"
+1170 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B           B"
+1180 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B           B"
+1190 print"{grey2}B       {brown}********          {grey2}B           B"
+1200 print"{grey2}B                         {$ab}CCCCCCCCCCC{$b3}"
+1210 print"{grey2}B                         B{wht}settings(s){grey2}B"
+1220 print"{grey2}B v2.9.0                  Bupgrades(u)B"
+1230 print"{grey2}JCCCCCCCCCCCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCK"
 
-650 rem ft$="0":mt$="0"
+1300 print"{home}{down}{down}{down}{down}B "bn$"'s bakery 
 
-700 print cl$(0)
-710 print cl$(1)ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$int(cc)
-720 print cl$(2)"{wht} 0         {grey2}B"ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ca$
-730 print cl$(3)
-740 print cl$(4)"{wht}15         {grey2}B"
-750 print cl$(5)
-760 print cl$(6)
-770 print cl$(7)"{wht} 0         {grey2}B"ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ls$ga$
-780 print cl$(8)
-790 print cl$(9)"{wht}100        {grey2}B"
-800 print cl$(10)
-810 print cl$(11):rem f
-820 print cl$(12):rem f
-830 print cl$(13):rem f
-840 print cl$(14):rem f
-850 print cl$(15)
-860 print cl$(16):rem m
-870 print cl$(17):rem m
-880 print cl$(18):rem m
-890 print cl$(19):rem m
-900 print cl$(20)
-910 print cl$(21)
-920 print cl$(22)
-940 print cl$(23)
+1500 ft$="0":mt$="0" 
 
-950 rem stop
-
-1000 if ft$="0" then gosub 10000
-1010 if mt$="0" then gosub 11000
-
-1410 get k$:if k$= "" then 1900
-1415 if k$=" " then 2000
-1420 if k$="c" then 3000
-1430 if k$="g" then 4000
-1440 if k$="f" then 5000
-1450 if k$="m" then 6000
-1460 if k$="s" then 30000
-1890 rem start of auto add
-1900 cc=cc+cg
-1910 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-1920 goto 1000
-
-
-1990 rem start of 'clicking'
-
-
-2000 cc=cc+1
+1900 if ft$="0" then goto 1900 rem gosub  
+1910 if mt$="0" then gosub  
+1920 get k$:if k$= "" then 1920
+1930 if k$=" " then 2100 
+1940 if k$="c" then  
+1950 if k$="g" then  
+1960 if k$="f" then  
+1970 if k$="m" then 
+1980 if k$="s" then  
+1990 rem start of auto add
+2000 cc=cc+cg
 2010 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-2020 goto 1000
+2020 goto 1900
 
 
-2990 rem start of cursor CLEAN THIS CODE FOR 2.0.1
+2099 rem part 2
 
 
-3000 if cc<c1 then 1000
-3010 cc=cc-c1
-3015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
-3025 print"{home}{grey2}"ds$ds$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$ca
-3030 cg=cg+.05
-3040 cc=cc+cg
-3050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-3060 ca=ca+1
-3065 print"{home}{grey2}"ds$ds$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$"{wht}"ca
-3070 print"{home}"ds$ds$
-3075 goto 1000
+2100 cc=cc+1
+2110 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
+2120 goto 1000
 
-
-3990 rem start of grandma CLEAN THIS CODE FOR 2.0.1
-
-
-4000 if cc<c2 then 1000
-4010 cc=cc-c2
-4015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
-4020 ga=ga+1
-4025 print"{home}"ds$ds$ds$ds$ds$ds$ds$"{wht}"rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$ga
-4030 cg=cg+.05
-4040 cc=cc+cg
-4050 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-4060 goto 1000
-
-
-4990 rem start of farms
-
-
-5000 if cc<c3 then 1000
-5010 cc=cc-c3
-5015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
-5020 fa=fa+1
-5025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$"{wht}"fa
-5030 cg=cg+.06
-5035 cc=cc+cg
-5040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-5050 goto 1000
-
-
-5990 rem start of mines
-
-
-6000 if cc<c4 then 1000
-6010 cc=cc-c4
-6015 print"{home}"ds$"{grey2}B{wht} you have                ":rem stops from messing up the counter
-6020 ma=ma+1
-6025 print"{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$rs$"{wht}"ma
-6030 cg=cg+.1
-6035 cc=cc+cg
-6040 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-6050 goto 1000 
-
-9999 rem start of unlockable building text 
-
-10000 if cc<400 then return
-10010 ft$="1"
-10020 cl$(10)="{grey2}B    {brown}***{blk}**{brown}*********{grey2}       B{wht}farm(f)    {grey2}B"
-10025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$
-10026 print cl$(10)
-10030 cl$(11)="B    {brown}********{blk}**{brown}****{grey2}       B{wht} 0         {grey2}B"
-10035 print cl$(11)
-10040 cl$(12)="B    {brown}********{blk}**{brown}****{grey2}       B{wht}cost:      {grey2}B"
-10045 print cl$(12)
-10050 cl$(13)="B    {brown}**************{grey2}       B{wht} 1100      {grey2}B"
-10055 print cl$(13)
-10060 cl$(14)="B    {brown}*{blk}*{brown}************{grey2}       *CCCCCCCCCCC*" 
-10065 print cl$(14)
-10070 return
-
-11000 if cc<6000 then return
-11010 mt$="1"
-11020 cl$(16)="{grey2}B    {brown}*************{brown}*{grey2}       B{wht}mine(m)    {grey2}B"
-11025 print "{home}"ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$ds$
-11026 print cl$(16)
-11030 cl$(17)="B     {brown}******{blk}**{brown}****{grey2}        B{wht} 0         {grey2}B"
-11035 print cl$(17)
-11040 cl$(18)="B      {brown}*****{blk}**{brown}***{grey2}         B{wht}cost:      {grey2}B"
-11045 print cl$(18)
-11050 cl$(19)="B       {brown}********{grey2}          B{wht} 12000     {grey2}B"
-11055 print cl$(19)
-11060 cl$(20)="B                         *CCCCCCCCCCC*" 
-11065 print cl$(20)
-11070 return
-
-30000 rem settings start here
-30010 poke53280,0:poke53281,0:sl$=chr$(163)
-
-30100 print"{clear}{grey1}*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
-30110 print"B                                     B"
-30120 print"B {wht}bakery name (b):                    {grey1}B"
-30130 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
-30140 print"B                                     B"
-30150 print"B {wht}load (l)                            {grey1}B"
-30160 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
-30170 print"B                                     B"
-30180 print"B {wht}save (s)                            {grey1}B"
-30190 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
-30200 print"B                                     B"
-30210 print"B {red}wipe save (w)                       {grey1}B"
-30220 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
-30230 print"B                                     B"
-30240 rem print"B                                     B"
-30250 rem print"B                                     B"
-30260 rem print"B                                     B"
-30270 rem print"B                                     B"
-30280 rem print"B  USE LATER IF YOU ADD MORE OPTIONS  B"
-30290 rem print"B                                     B"
-30300 rem print"B                                     B"
-30310 print"B {wht}exit settings (e)                   {grey1}B"
-30320 print"B"sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$sl$"B"
-30330 print"B                                     B"
-30340 print"*CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
-
-31000 getk$:ifk$=""then 31000
-31010 ifk$="b"then goto 32000
-31020 ifk$="l"then goto 33000
-31030 ifk$="s"then goto 34000
-31040 ifk$="w"then goto 35000
-31050 ifk$="e"then goto 36000
-
-33000 rem loading
-
-33010 print"{clear}loading save data..."
-33015 open 8,8,8,"cc64.sav,s,r"
-33020 input#8,cc
-33022 input#8,cg
-33024 input#8,ca
-33026 input#8,ga
-33028 input#8,fa
-33030 input#8,ma
-33060 close 8
-33070 print"loading complete"
-33075 poke53280,14:poke53281,6
-33080 goto 650
-
-34000 rem saving 
-
-34010 print"{clear}writing save data..."
-34020 open 8,8,8,"@0:cc64.sav,s,w"
-34030 print#8,cc
-34035 print#8,cg
-34040 print#8,ca
-34045 print#8,ga
-34050 print#8,fa
-34055 print#8,ma
-34060 close 8
-34070 print"saving complete"
-34080 goto 30000
-
-35000 rem wipe save
-
-35010 print"not implemented yet!"
-35020 getk$:ifk$=""then35020
-35030 goto 36000
-
-36000 rem exit settings
-
-36010 print"{clear}"
-36020 poke53280,14:poke53281,6
-36030 rem gosub 10000
-36040 rem gosub 11000
-36050 goto 700
-
-
-
-
-
-
-
-
-
-
-
-60000 rem save debug
-
-60005 print cc 
-60010 print cg
-60020 print ca 
-60030 print ga 
-60040 print fa 
-60050 print ma
+2200 
