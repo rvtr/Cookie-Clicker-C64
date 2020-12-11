@@ -57,10 +57,31 @@
 2110 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2120 goto 1900
 
-2200 if cc<15 then 1900
-2210 cc=cc-15:cg=cg+.05:ca=ca+1
+2200 if cc<15 then 1900 rem CURSORS
+2210 cc=cc-15:cg=cg+.04:ca=ca+1
 2220 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2225 print"{home}{down}{grey2}B{wht} you have                {grey2}B
 2230 print"{home}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
 2240 goto 1900
 
+
+2300 if cc<100 then 1900 rem GRANDMAS
+2310 cc=cc-100:cg=cg+.05:ca=ca+1
+2320 print"{home}{down}{grey2}B{wht} you have "int(cc)
+2325 print"{home}{down}{grey2}B{wht} you have                {grey2}B
+2330 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2340 goto 1900
+
+2400 if cc<1100 then 1900 rem MINES
+2410 cc=cc-1100:cg=cg+.06:ca=ca+1
+2420 print"{home}{down}{grey2}B{wht} you have "int(cc)
+2425 print"{home}{down}{grey2}B{wht} you have                {grey2}B
+2430 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2440 goto 1900
+
+2500 if cc<12000 then 1900 rem FARMS
+2510 cc=cc-12000:cg=cg+.1:ca=ca+1
+2520 print"{home}{down}{grey2}B{wht} you have "int(cc)
+2525 print"{home}{down}{grey2}B{wht} you have                {grey2}B
+2530 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2540 goto 1900
