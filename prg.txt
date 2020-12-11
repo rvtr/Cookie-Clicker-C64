@@ -7,8 +7,8 @@
 99 print"{clear}{home}"
 
 1000 print"{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
-1010 print"{grey2}B you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
-1020 print"{grey2}B cookies                 {grey2}B{wht} "ca"       {grey2}B"
+1010 print"{grey2}B{wht} you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
+1020 print"{grey2}B{wht} cookies                 {grey2}B{wht} "ca"       {grey2}B"
 1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
 1040 print"{grey2}B                         {grey2}B{wht}15         {grey2}B"
 1050 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
@@ -27,26 +27,26 @@
 1180 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B           B"
 1190 print"{grey2}B       {brown}********          {grey2}B           B"
 1200 print"{grey2}B                         {$ab}CCCCCCCCCCC{$b3}"
-1210 print"{grey2}B                         B{wht}settings(s){grey2}B"
-1220 print"{grey2}B v2.9.0                  Bupgrades(u)B"
+1210 print"{grey2}B                         B{grey1}settings(s){grey2}B"
+1220 print"{grey2}B v2.9.0                  B{grey1}upgrades(u){grey2}B"
 1230 print"{grey2}JCCCCCCCCCCCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCK"
 
 1300 print"{home}{down}{down}{down}{down}B "bn$"'s bakery 
 
 1500 ft$="0":mt$="0" 
 
-1900 if ft$="0" then goto 1900 rem gosub  
-1910 if mt$="0" then gosub  
-1920 get k$:if k$= "" then 1920
+1900 rem if ft$="0" then gosub  
+1910 rem if mt$="0" then gosub  
+1920 get k$:if k$= "" then 1990
 1930 if k$=" " then 2100 
-1940 if k$="c" then  
-1950 if k$="g" then  
-1960 if k$="f" then  
-1970 if k$="m" then 
+1940 if k$="c" then 2200
+1950 if k$="g" then 2300 
+1960 if k$="f" then 2400 
+1970 if k$="m" then 2500
 1980 if k$="s" then  
 1990 rem start of auto add
 2000 cc=cc+cg
-2010 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
+2010 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2020 goto 1900
 
 
@@ -54,7 +54,13 @@
 
 
 2100 cc=cc+1
-2110 print"{home}"ds$"{grey2}B{wht} you have "int(cc)
-2120 goto 1000
+2110 print"{home}{down}{grey2}B{wht} you have "int(cc)
+2120 goto 1900
 
-2200 
+2200 if cc<15 then 1900
+2210 cc=cc-15:cg=cg+.05:ca=ca+1
+2220 print"{home}{down}{grey2}B{wht} you have "int(cc)
+2225 print"{home}{down}{grey2}B{wht} you have                {grey2}B
+2230 print"{home}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2240 goto 1900
+
