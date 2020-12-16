@@ -8,12 +8,12 @@
 
 1000 print"{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
 1010 print"{grey2}B{wht} you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
-1020 print"{grey2}B{wht} cookies                 {grey2}B{wht} "ca"       {grey2}B"
+1020 print"{grey2}B{wht} cookies                 {grey2}B{wht}"ca"        {grey2}B"
 1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
 1040 print"{grey2}B                         {grey2}B{wht}15         {grey2}B"
 1050 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
 1060 print"{grey2}B                         {grey2}B{wht}grandma(g) {grey2}B"
-1070 print"{grey2}B                         {grey2}B{wht} "ga"       {grey2}B"
+1070 print"{grey2}B                         {grey2}B{wht}"ga"        {grey2}B"
 1080 print"{grey2}B       {brown}********          {grey2}B{wht}cost:      {grey2}B"
 1090 print"{grey2}B      {brown}*******{blk}**{brown}*         {grey2}B{wht}100        {grey2}B"
 1100 print"{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
@@ -35,8 +35,8 @@
 
 1500 ft$="0":mt$="0" 
 
-1900 rem if ft$="0" then gosub  
-1910 rem if mt$="0" then gosub  
+1900 if ft$="0" then gosub 4000
+1910 if mt$="0" then gosub 4100
 1920 get k$:if k$= "" then 1990
 1930 if k$=" " then 2100 
 1940 if k$="c" then 2200
@@ -61,27 +61,48 @@
 2210 cc=cc-15:cg=cg+.04:ca=ca+1
 2220 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2225 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2230 print"{home}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2230 print"{home}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"ca
 2240 goto 1900
 
-
 2300 if cc<100 then 1900 rem GRANDMAS
-2310 cc=cc-100:cg=cg+.05:ca=ca+1
+2310 cc=cc-100:cg=cg+.05:ga=ga+1
 2320 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2325 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2330 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2330 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"ga
 2340 goto 1900
 
 2400 if cc<1100 then 1900 rem MINES
-2410 cc=cc-1100:cg=cg+.06:ca=ca+1
+2410 cc=cc-1100:cg=cg+.06:ma=ma+1
 2420 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2425 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2430 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2430 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"ma
 2440 goto 1900
 
 2500 if cc<12000 then 1900 rem FARMS
-2510 cc=cc-12000:cg=cg+.1:ca=ca+1
+2510 cc=cc-12000:cg=cg+.1:fa=fa+1
 2520 print"{home}{down}{grey2}B{wht} you have "int(cc)
 2525 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2530 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht} "ca
+2530 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"fa
 2540 goto 1900
+
+4000 if cc<400 then return
+4010 ft$="1"
+4020 print"{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4030 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B{wht}farm(f)    {grey2}B"
+4040 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht} 0         {grey2}B"
+4050 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}cost:      {grey2}B"
+4060 print"{grey2}B    {brown}**************       {grey2}B{wht} 1100      {grey2}B"
+4070 print"{grey2}B    {brown}*{blk}*{brown}************       {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4080 return
+
+4100 if cc<6000 then return
+4110 mt$="1"
+4120 print"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4130 print"{grey2}B    {brown}*************{brown}*       {grey2}B{wht}mine(m)    {grey2}B"
+4140 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht} 0         {grey2}B"
+4150 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B{wht}cost:      {grey2}B"
+4160 print"{grey2}B       {brown}********          {grey2}B{wht} 12000     {grey2}B"
+4170 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4180 return
+
+
