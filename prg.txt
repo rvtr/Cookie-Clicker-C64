@@ -6,7 +6,7 @@
 50 c1=15:c2=100:c3=1100:c4=12000
 99 print"{clear}{home}"
 
-1000 print"{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
+1000 print"{clear}{home}{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
 1010 print"{grey2}B{wht} you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
 1020 print"{grey2}B{wht} cookies                 {grey2}B{wht}"ca"        {grey2}B"
 1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
@@ -43,7 +43,7 @@
 1950 if k$="g" then 2300 
 1960 if k$="f" then 2400 
 1970 if k$="m" then 2500
-1980 if k$="s" then  
+1980 if k$="s" then 10000 
 1990 rem start of auto add
 2000 cc=cc+cg
 2010 print"{home}{down}{grey2}B{wht} you have "int(cc)
@@ -87,7 +87,7 @@
 
 4000 if cc<400 then return
 4010 ft$="1"
-4020 print"{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4020 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4030 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B{wht}farm(f)    {grey2}B"
 4040 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht} 0         {grey2}B"
 4050 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}cost:      {grey2}B"
@@ -97,7 +97,7 @@
 
 4100 if cc<6000 then return
 4110 mt$="1"
-4120 print"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4120 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4130 print"{grey2}B    {brown}*************{brown}*       {grey2}B{wht}mine(m)    {grey2}B"
 4140 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht} 0         {grey2}B"
 4150 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B{wht}cost:      {grey2}B"
@@ -106,3 +106,85 @@
 4180 return
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10000 rem settings start here
+10010 poke53280,0:poke53281,0
+10100 print"{clear}{grey1}UCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCI"
+10110 print"B                                     B"
+10120 print"B {wht}bakery name (b):                    {grey1}B"
+10130 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
+10140 print"B                                     B"
+10150 print"B {wht}save (s)                            {grey1}B"
+10160 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
+10170 print"B                                     B"
+10180 print"B {wht}load (l)                            {grey1}B"
+10190 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
+10200 print"B                                     B"
+10210 print"B {red}wipe save (w)                       {grey1}B"
+10220 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
+10230 print"B                                     B"
+10240 rem print"B                                     B"
+10250 rem print"B                                     B"
+10260 rem print"B                                     B"
+10270 rem print"B                                     B"
+10280 rem print"B  USE LATER IF YOU ADD MORE OPTIONS  B"
+10290 rem print"B                                     B"
+10300 rem print"B                                     B"
+10310 print"B {wht}exit settings (e)                   {grey1}B"
+10320 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
+10330 print"B                                     B"
+10340 print"JCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCK"
+
+11200 getk$:ifk$=""then 11200
+11210 ifk$="b"then goto 12000
+11220 ifk$="s"then goto 12100
+11230 ifk$="l"then goto 12200
+11240 ifk$="w"then goto 12300
+11250 ifk$="e"then goto 13000
+
+12100 print"{clear}writing save data..."
+12110 open 8,8,8,"@0:cc64.sav,s,w"
+12120 print#8,cc
+12130 print#8,cg
+12140 print#8,ca
+12145 print#8,ga
+12150 print#8,fa
+12155 print#8,ma
+12160 close 8
+12170 print"saving complete"
+12180 goto 10000
+
+12200 print"{clear}loading save data..."
+12210 open 8,8,8,"cc64.sav,s,r"
+12220 input#8,cc
+12222 input#8,cg
+12224 input#8,ca
+12226 input#8,ga
+12228 input#8,fa
+12230 input#8,ma
+12260 close 8
+12270 print"loading complete"
+12275 poke53280,14:poke53281,6
+12280 goto 10000
+
+13000 print"{clear}"
+13010 poke53280,14:poke53281,6
+13030 goto 1000
