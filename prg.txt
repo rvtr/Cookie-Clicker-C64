@@ -1,5 +1,5 @@
 0 rem !to "build/cookie.prg"
-10 cc=0:cg=0:ca=0:ga=0:ft$="0":mt$="0":bn$="someone"
+10 cc=0:cg=0:ca=0:ga=0:fa=0:ma=0:ft$="0":mt$="0":bn$="someone"
 20 ds$=chr$(17):rem cursor down
 30 rs$=chr$(29):rem cursor right
 40 ls$=chr$(157):rem cursor left
@@ -10,12 +10,12 @@
 1010 print"{grey2}B{wht} you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
 1020 print"{grey2}B{wht} cookies                 {grey2}B{wht}"ca"        {grey2}B"
 1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
-1040 print"{grey2}B                         {grey2}B{wht}15         {grey2}B"
+1040 print"{grey2}B                         {grey2}B{wht} 15        {grey2}B"
 1050 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
 1060 print"{grey2}B                         {grey2}B{wht}grandma(g) {grey2}B"
 1070 print"{grey2}B                         {grey2}B{wht}"ga"        {grey2}B"
 1080 print"{grey2}B       {brown}********          {grey2}B{wht}cost:      {grey2}B"
-1090 print"{grey2}B      {brown}*******{blk}**{brown}*         {grey2}B{wht}100        {grey2}B"
+1090 print"{grey2}B      {brown}*******{blk}**{brown}*         {grey2}B{wht} 100       {grey2}B"
 1100 print"{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
 1110 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B           B"
 1120 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B           B"
@@ -28,7 +28,7 @@
 1190 print"{grey2}B       {brown}********          {grey2}B           B"
 1200 print"{grey2}B                         {$ab}CCCCCCCCCCC{$b3}"
 1210 print"{grey2}B                         B{grey1}settings(s){grey2}B"
-1220 print"{grey2}B v2.9.0                  B{grey1}upgrades(u){grey2}B"
+1220 print"{grey2}B v2.9.0-1.0              B{grey1}upgrades(u){grey2}B"
 1230 print"{grey2}JCCCCCCCCCCCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCK"
 
 1300 print"{home}{down}{down}{down}{down}B "bn$"'s bakery 
@@ -89,8 +89,9 @@
 4010 ft$="1"
 4020 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4030 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B{wht}farm(f)    {grey2}B"
-4040 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht} 0         {grey2}B"
-4050 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}cost:      {grey2}B"
+4040 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}"fa
+4045 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht} {right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
+4050 print"{up}{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}cost:      {grey2}B"
 4060 print"{grey2}B    {brown}**************       {grey2}B{wht} 1100      {grey2}B"
 4070 print"{grey2}B    {brown}*{blk}*{brown}************       {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4080 return
@@ -99,31 +100,13 @@
 4110 mt$="1"
 4120 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4130 print"{grey2}B    {brown}*************{brown}*       {grey2}B{wht}mine(m)    {grey2}B"
-4140 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht} 0         {grey2}B"
+4140 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht}"ma
+4145 print"{up}{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht} {right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
 4150 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B{wht}cost:      {grey2}B"
 4160 print"{grey2}B       {brown}********          {grey2}B{wht} 12000     {grey2}B"
 4170 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4180 return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+4180 return
 
 10000 rem settings start here
 10010 poke53280,0:poke53281,0
@@ -188,3 +171,105 @@
 13000 print"{clear}"
 13010 poke53280,14:poke53281,6
 13030 goto 1000
+
+
+
+
+
+
+
+40000 rem testing menu
+40010 poke53280,0:poke53281,0:poke646,5
+40020 print"{clear}logging into console...
+40025 print"cc64:/>"
+40030 print"{up}{right}{right}{right}{right}{right}{right}{right} h"
+40040 print"loading help menu..."
+40045 print""
+40050 print"  edit saves:"
+40060 print""
+40070 print"    create    [c]"
+40080 print"    delete    [d]"
+40090 print"    edit      [e]"
+40100 print""
+40110 print"  varibles:"
+40120 print""
+40130 print"    read all  [r]"
+40140 print"    edit all  [m]"
+40150 print""
+40160 print"  help        [h]
+40170 print""
+40180 print"cc64:/>"
+40500 getk$:ifk$=""then40500
+40510 ifk$="c"then 41000
+40520 ifk$="d"then 
+40530 ifk$="e"then 
+40540 ifk$="r"then 
+40550 ifk$="m"then 
+40560 ifk$="h"then 40030
+40600 goto 40500
+
+41000 print"{up}{right}{right}{right}{right}{right}{right}{right} c"
+41010 print"creating save file..."
+41015 open 8,8,8,"cc64.sav,s,w"
+41020 print#8,0
+41030 print#8,0
+41040 print#8,0
+41045 print#8,0
+41050 print#8,0
+41055 print#8,0
+41060 close 8
+41070 print"done!"
+41080 goto 40180
+
+42000 print"{clear}deleting save file..."
+42010 open 8,8,8,"@0:cc64.sav,s,r"
+42020 input#8,0
+42022 input#8,0
+42024 input#8,0
+42026 input#8,0
+42028 input#8,0
+42030 input#8,0
+42060 close 8
+42070 print"done!"
+
+
+43000 print"{clear}loading save file..."
+43010 open 8,8,8,"@0:cc64.sav,s,r"
+43020 get#8,s1
+43022 get#8,s2
+43024 get#8,s3
+43026 get#8,s4
+43028 get#8,s5
+43030 get#8,s6
+43070 print"loading complete"
+43100 print"  cookies: "s
+43110 print"  cookie gain: "s
+43120 print"  cursor amount "s
+43130 print"  grandma amount "s
+43140 print"  farm amount "s
+43150 print"  mine amount "s
+
+
+
+
+
+49020 rem [20:38:28 ~/development/commodore/cookie-clicker-c64] git commit -m "saving/load
+49030 rem mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
