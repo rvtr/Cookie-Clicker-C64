@@ -87,7 +87,7 @@
 
 4000 if cc<400 then return
 4010 ft$="1"
-4020 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4020 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4030 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B{wht}farm(f)    {grey2}B"
 4040 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht} 0         {grey2}B"
 4050 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}cost:      {grey2}B"
@@ -97,7 +97,7 @@
 
 4100 if cc<6000 then return
 4110 mt$="1"
-4120 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
+4120 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
 4130 print"{grey2}B    {brown}*************{brown}*       {grey2}B{wht}mine(m)    {grey2}B"
 4140 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht} 0         {grey2}B"
 4150 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B{wht}cost:      {grey2}B"
