@@ -124,11 +124,11 @@
 10210 print"B {red}wipe save (w)                       {grey1}B"
 10220 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
 10230 print"B                                     B"
-10240 rem print"B                                     B"
-10250 rem print"B                                     B"
-10260 rem print"B                                     B"
+10240 print"B {yel}devmenu (d)                         {grey1}B"
+10250 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
+10260 print"B                                     B"
 10270 rem print"B                                     B"
-10280 rem print"B  USE LATER IF YOU ADD MORE OPTIONS  B"
+10280 rem print"B                                     B"
 10290 rem print"B                                     B"
 10300 rem print"B                                     B"
 10310 print"B {wht}exit settings (e)                   {grey1}B"
@@ -142,6 +142,7 @@
 11230 ifk$="l"then goto 12200
 11240 ifk$="w"then goto 12300
 11250 ifk$="e"then goto 13000
+11260 ifk$="d"then goto 40000
 
 12100 print"{clear}writing save data..."
 12110 open 8,8,8,"@0:cc64.sav,s,w"
@@ -171,3 +172,38 @@
 13000 print"{clear}"
 13010 poke53280,14:poke53281,6
 13030 goto 1000
+
+
+40000 print"{clear}"
+40010 print chr$(147);
+40020 q$=chr$(34)
+40030 d$=chr$(17)
+40040 print"load"q$"devmenu"q$",8"
+40050 printd$;d$;d$;d$;"run"
+40060 rem load keyboard buffer and flush it
+40070 poke631,19:poke632,13:poke633,13:poke198,3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

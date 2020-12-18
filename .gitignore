@@ -2,4 +2,8 @@
 .DS_Store
 build/.DS_Store
 # Others 
+devmenu.txt
+build/devmenu.prg
+build/devmenu.prg.out.prg
 build/cc64.sav
+build/cookie.d64
