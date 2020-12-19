@@ -8,12 +8,14 @@
 
 1000 print"{clear}{home}{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
 1010 print"{grey2}B{wht} you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
-1020 print"{grey2}B{wht} cookies                 {grey2}B{wht}"ca"        {grey2}B"
+1020 print"{grey2}B{wht} cookies                 {grey2}B{wht}"ca
+1025 print"{up}{grey2}B{wht} cookies                 {grey2}B{wht}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
 1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
 1040 print"{grey2}B                         {grey2}B{wht} 15        {grey2}B"
 1050 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
 1060 print"{grey2}B                         {grey2}B{wht}grandma(g) {grey2}B"
-1070 print"{grey2}B                         {grey2}B{wht}"ga"        {grey2}B"
+1070 print"{grey2}B                         {grey2}B{wht}"ga
+1075 print"{up}{grey2}B{wht}                         {grey2}B{wht}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
 1080 print"{grey2}B       {brown}********          {grey2}B{wht}cost:      {grey2}B"
 1090 print"{grey2}B      {brown}*******{blk}**{brown}*         {grey2}B{wht} 100       {grey2}B"
 1100 print"{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
@@ -173,7 +175,6 @@
 13010 poke53280,14:poke53281,6
 13030 goto 1000
 
-
 40000 print"{clear}"
 40010 print chr$(147);
 40020 q$=chr$(34)
@@ -182,28 +183,3 @@
 40050 printd$;d$;d$;d$;"run"
 40060 rem load keyboard buffer and flush it
 40070 poke631,19:poke632,13:poke633,13:poke198,3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
