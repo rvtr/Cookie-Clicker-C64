@@ -1,4 +1,5 @@
 0 rem !to "build/cookie.prg"
+5 poke788,52:poke792,193:poke53280,14:poke53281,6:rem screen color and stop block
 10 cc=0:cg=0:ca=0:ga=0:fa=0:ma=0:ft$="0":mt$="0":bn$="someone"
 20 ds$=chr$(17):rem cursor down
 30 rs$=chr$(29):rem cursor right
@@ -33,7 +34,9 @@
 1220 print"{grey2}B v2.9.0-1.0              B{grey1}upgrades(u){grey2}B"
 1230 print"{grey2}JCCCCCCCCCCCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCK"
 
-1300 print"{home}{down}{down}{down}{down}B "bn$"'s bakery 
+1300 print"{home}{down}{down}{down}{down}B "bn$"'s bakery "
+1310 print"{up}B{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B{wht} 15        {grey2}B"
+1320 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
 
 1500 ft$="0":mt$="0" 
 
@@ -146,7 +149,18 @@
 11250 ifk$="e"then goto 13000
 11260 ifk$="d"then goto 40000
 
-12100 print"{clear}writing save data..."
+12000 print"{down}{wht}please enter a new name (14 characters max):"
+12010 input nn$
+12020 nl=len(nn$)
+12030 if nl<14 then 12045
+12040 print"{up}{up}{up}{red}error: name too long{wht}":goto 12000
+12045 print"are you sure? (y/n)"
+12050 getk$:ifk$=""then12050
+12060 ifk$="y"then 12080
+12070 goto 10100
+12080 bn$=nn$:goto10100
+
+12100 print"{clear}{wht}writing save data..."
 12110 open 8,8,8,"@0:cc64.sav,s,w"
 12120 print#8,cc
 12130 print#8,cg
@@ -158,8 +172,8 @@
 12170 print"saving complete"
 12180 goto 10000
 
-12200 print"{clear}loading save data..."
-12210 open 8,8,8,"cc64.sav,s,r"
+12200 print"{clear}{wht}loading save data..."
+12210 open 8,8,8,"cc64.sav,s,r" 
 12220 input#8,cc
 12222 input#8,cg
 12224 input#8,ca

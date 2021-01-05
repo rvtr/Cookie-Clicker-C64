@@ -31,7 +31,7 @@ Cookie Clicker C64 (or CC64 for short) is a Cookie clicker clone for the Commodo
 
 ## Saves:
 
-Saves must be named cc64.sav and placed in the same directory as cookie.prg. (to copy the save onto a d64 file, use <a href="http://lallafa.de/blog/c64-projects/diskimagery64/" target="_blank">DiskImagery64</a>)
+Saves must be named cc64.sav and placed in the same directory as cookie.prg. (to copy the save onto a d64 file, use <a href="http://lallafa.de/blog/c64-projects/diskimagery64/" target="_blank">DiskImagery64</a> or another disk editor.)
 <br>Currently saves are only available in the nightly builds.
  
 
@@ -60,8 +60,8 @@ Credits:
 - [@Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)
 
 Notes: 
-- Due to the way I have everything set up my commits will appear as commits by drskinner.
-- Editing program lines larger than 80 characters on the C64 (or on an emulator) will result in parts of them being deleted. 
+- Due to the way I have everything set up, some of my commits will appear as commits by [@drskinner](https://github.com/drskinner/)
+- Editing program lines larger than 80 characters on the C64 (or on an emulator) will result in parts of them being deleted
 
 
 
