@@ -1,0 +1,122 @@
+0 rem !to "build/testmenu.prg"
+40000 rem testing menu
+40010 poke53280,0:poke53281,0:poke646,5
+40020 print"{clear}logging into console...
+40025 print"cc64:/>"
+40030 print"{up}{right}{right}{right}{right}{right}{right}{right} h"
+40040 print"loading help menu..."
+40045 print""
+40050 print"  manage saves:"
+40060 print""
+40110 print"    delete    [d]"
+40120 print"    backup    [b]"
+40130 print"    restore   [r]"
+40140 print"    edit      [e]"
+40150 print""
+40160 print"  others:"
+40170 print"    help      [h]"
+40160 print"    exit      [t]"
+40170 print""
+40180 print"cc64:/>"
+40500 getk$:ifk$=""then40500
+40520 ifk$="d"then 41000
+40530 ifk$="b"then 42000
+40540 ifk$="r"then 43000
+40570 ifk$="e"then 44000
+40580 ifk$="h"then 40030
+40590 ifk$="t"then 60000
+40600 goto 40500
+
+41000 print"{up}{right}{right}{right}{right}{right}{right}{right} d"
+41005 print"deleting save file..."
+41010 open 8,8,8,"@0:cc64.sav,s,w"
+41020 print#8,0
+41025 print#8,0
+41030 print#8,0
+41035 print#8,0
+41040 print#8,0
+41050 print#8,0
+41060 close 8
+41070 print"done!"
+41080 goto 40180
+
+42000 print"{up}{right}{right}{right}{right}{right}{right}{right} b"
+42005 open 15,8,15
+42010 print#15,"copy0:cc64.sav=test"
+42020 close 15:stop
+
+44000 print"{up}{right}{right}{right}{right}{right}{right}{right} e"
+44005 print"loading save file..."
+44010 open 8,8,8,"@0:cc64.sav,s,r"
+44020 input#8,sa
+44022 input#8,sb
+44024 input#8,sc
+44026 input#8,sd
+44028 input#8,se
+44030 input#8,sf
+44040 close 8
+44070 print"loading complete"
+44080 print""
+44100 print" [1] cookies:          "sa
+44110 print" [2] cookie gain:      "sb
+44120 print" [3] cursor amount:    "sc
+44130 print" [4] grandma amount:   "sd
+44140 print" [5] farm amount:      "se
+44150 print" [6] mine amount:      "sf
+44500 print" [7] exit menu (saves changes)"
+44510 print""
+44520 print"please choose an option"
+44530 print"cc64:/cc64.sav/>"
+44540 getk$:ifk$=""then44540
+44550 if k$="1"then 44000
+44560 if k$="2"then 44100
+44570 if k$="3"then 44200
+44580 if k$="4"then 44300
+44590 if k$="5"then 44400
+44600 if k$="6"then 44500
+44610 if k$="7"then 44600
+44999 goto 43540
+
+44000 print"please set a value"
+44010 input sa
+44020 goto 43080
+
+44100 print"please set a value"
+44110 input sb
+44120 goto 43080
+
+44200 print"please set a value"
+44210 input sc
+44220 goto 43080
+
+44300 print"please set a value"
+44310 input sd
+44320 goto 43080
+
+44400 print"please set a value"
+44410 input se
+44420 goto 43080
+
+44500 print"please set a value"
+44510 input sf
+44520 goto 43080
+
+44600 print"{up}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right} .."
+44610 open 8,8,8,"@0:cc64.sav,s,w"
+44620 print#8,sa
+44630 print#8,sb
+44640 print#8,sc
+44650 print#8,sd
+44660 print#8,se
+44670 print#8,sf
+44680 close 8
+44690 goto 40180
+
+60000 print"{clear}"
+60010 print chr$(147);
+60020 q$=chr$(34)
+60030 d$=chr$(17)
+60040 print"load"q$"cookie"q$",8"
+60050 printd$;d$;d$;d$;"run"
+60060 rem load keyboard buffer and flush it
+60070 poke631,19:poke632,13:poke633,13:poke198,3

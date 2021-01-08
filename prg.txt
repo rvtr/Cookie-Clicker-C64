@@ -1,5 +1,5 @@
 0 rem !to "build/cookie.prg"
-5 poke788,52:poke792,193:poke53280,14:poke53281,6:rem screen color and stop block
+5 poke788,52:poke792,193:poke53280,14:poke53281,6:poke650,64:rem screen color, stop block and no repeat
 10 cc=0:cg=0:ca=0:ga=0:fa=0:ma=0:ft$="0":mt$="0":bn$="someone"
 20 ds$=chr$(17):rem cursor down
 30 rs$=chr$(29):rem cursor right
@@ -129,7 +129,7 @@
 10210 print"B {red}wipe save (w)                       {grey1}B"
 10220 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
 10230 print"B                                     B"
-10240 print"B {yel}devmenu (d)                         {grey1}B"
+10240 print"B {yel}testmenu (t)                        {grey1}B"
 10250 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
 10260 print"B                                     B"
 10270 rem print"B                                     B"
@@ -147,9 +147,9 @@
 11230 ifk$="l"then goto 12200
 11240 ifk$="w"then goto 12300
 11250 ifk$="e"then goto 13000
-11260 ifk$="d"then goto 40000
+11260 ifk$="t"then goto 40000
 
-12000 print"{down}{wht}please enter a new name (14 characters max):"
+12000 print"{clear}{down}{wht}please enter a new name (14 characters max):"
 12010 input nn$
 12020 nl=len(nn$)
 12030 if nl<14 then 12045
@@ -193,7 +193,7 @@
 40010 print chr$(147);
 40020 q$=chr$(34)
 40030 d$=chr$(17)
-40040 print"load"q$"devmenu"q$",8"
+40040 print"load"q$"testmenu"q$",8"
 40050 printd$;d$;d$;d$;"run"
 40060 rem load keyboard buffer and flush it
 40070 poke631,19:poke632,13:poke633,13:poke198,3
