@@ -126,7 +126,7 @@
 10180 print"B {wht}load (l)                            {grey1}B"
 10190 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
 10200 print"B                                     B"
-10210 print"B {red}wipe save (w)                       {grey1}B"
+10210 print"B {red}manage saves (m)                    {grey1}B"
 10220 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
 10230 print"B                                     B"
 10240 print"B {yel}testmenu (t)                        {grey1}B"
@@ -145,9 +145,10 @@
 11210 ifk$="b"then goto 12000
 11220 ifk$="s"then goto 12100
 11230 ifk$="l"then goto 12200
-11240 ifk$="w"then goto 12300
-11250 ifk$="e"then goto 13000
+11240 ifk$="m"then goto 12300
+11250 ifk$="e"then goto 15000
 11260 ifk$="t"then goto 40000
+11270 goto 11200
 
 12000 print"{clear}{down}{wht}please enter a new name (14 characters max):"
 12010 input nn$
@@ -185,9 +186,49 @@
 12275 poke53280,14:poke53281,6
 12280 goto 10000
 
-13000 print"{clear}"
-13010 poke53280,14:poke53281,6
-13030 goto 1000
+
+
+
+
+
+
+
+12300 print"{home}{down}{down}{down}{down}{down}{down}{right}{right}{right}{right}*CCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
+12310 print"{right}{right}{right}{right}B (1) erase current save      B"
+12320 print"{right}{right}{right}{right}B (2) erase backuped up save  B"
+12330 rem print"{right}{right}{right}{right}B (3) create 2nd save         B"
+12340 rem print"{right}{right}{right}{right}B (4) erase 2nd save          B"
+12350 print"{right}{right}{right}{right}B (5) exit                    B"
+12360 print"{right}{right}{right}{right}*CCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
+12400 getk$:ifk$=""then12400
+12410 ifk$="1"then 12500
+12420 ifk$="2"then 12600
+12430 rem ifk$="3"then 
+12440 rem ifk$="4"then 
+12450 ifk$="5"then 10000
+12460 goto 12400
+
+12500 cc=0:cg=0:ca=0:ga=0:fa=0:ma=0:ft$="0":mt$="0":bn$="someone"
+12510 goto 10000
+
+12600 open 8,8,8,"@0:cc64.sav,s,w"
+12610 print#8,0
+12620 print#8,0
+12630 print#8,0
+12640 print#8,0
+12650 print#8,0
+12660 print#8,0
+12670 close 8
+12680 goto 10000
+
+
+
+
+
+
+15000 print"{clear}"
+15010 poke53280,14:poke53281,6
+15030 goto 1000
 
 40000 print"{clear}"
 40010 print chr$(147);
