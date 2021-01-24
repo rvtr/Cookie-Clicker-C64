@@ -1,26 +1,26 @@
 0 rem !to "build/testmenu.prg"
+5 poke788,52:poke792,193
 40000 rem testing menu
 40010 poke53280,0:poke53281,0:poke646,5
-40020 print"{clear}logging into console...
+40020 print"{clear}logging into console"
 40025 print"cc64:/>"
 40030 print"{up}{right}{right}{right}{right}{right}{right}{right} h"
-40040 print"loading help menu..."
+40040 print"booting help menu"
 40045 print""
 40050 print"  manage saves:"
 40060 print""
 40110 print"    delete    [d]"
-40120 print"    backup    [b]"
 40130 print"    restore   [r]"
 40140 print"    edit      [e]"
 40150 print""
 40160 print"  others:"
+40165 print""
 40170 print"    help      [h]"
 40160 print"    exit      [t]"
 40170 print""
 40180 print"cc64:/>"
 40500 getk$:ifk$=""then40500
 40520 ifk$="d"then 41000
-40530 ifk$="b"then 42000
 40540 ifk$="r"then 43000
 40570 ifk$="e"then 44000
 40580 ifk$="h"then 40030
@@ -28,89 +28,100 @@
 40600 goto 40500
 
 41000 print"{up}{right}{right}{right}{right}{right}{right}{right} d"
-41005 print"deleting save file..."
+41005 print"writing objects: 0% (0/1)"
 41010 open 8,8,8,"@0:cc64.sav,s,w"
+41015 print#8,0
 41020 print#8,0
 41025 print#8,0
 41030 print#8,0
 41035 print#8,0
 41040 print#8,0
 41050 print#8,0
+41055 print#8,"someone"
 41060 close 8
-41070 print"done!"
+41070 print"{up}print"writing objects: 0% (1/1)"
 41080 goto 40180
 
-42000 print"{up}{right}{right}{right}{right}{right}{right}{right} b"
-42005 open 15,8,15
-42010 print#15,"copy0:cc64.sav=test"
-42020 close 15:stop
-
 44000 print"{up}{right}{right}{right}{right}{right}{right}{right} e"
-44005 print"loading save file..."
+44005 print"loading save file: 0% (0/1)"
 44010 open 8,8,8,"@0:cc64.sav,s,r"
-44020 input#8,sa
-44022 input#8,sb
-44024 input#8,sc
-44026 input#8,sd
-44028 input#8,se
-44030 input#8,sf
+44015 input#8,sb
+44020 input#8,cc
+44022 input#8,cg
+44024 input#8,ca
+44026 input#8,ga
+44028 input#8,fa
+44030 input#8,ma
+44040 input#8,bn$
 44040 close 8
-44070 print"loading complete"
+44070 print"{up}loading save file: 100% (1/1)"
 44080 print""
-44100 print" [1] cookies:          "sa
-44110 print" [2] cookie gain:      "sb
-44120 print" [3] cursor amount:    "sc
-44130 print" [4] grandma amount:   "sd
-44140 print" [5] farm amount:      "se
-44150 print" [6] mine amount:      "sf
-44500 print" [7] exit menu (saves changes)"
+44090 print" [1] stop key flag:    "sb
+44100 print" [2] cookies:          "cc
+44110 print" [3] cookie gain:      "cg
+44120 print" [4] cursor amount:    "ca
+44130 print" [5] grandma amount:   "ga
+44140 print" [6] farm amount:      "fa
+44150 print" [7] mine amount:      "ma
+44160 print" [8] bakery name:      "bn$
+44500 print" [9] exit menu (saves changes)"
 44510 print""
 44520 print"please choose an option"
 44530 print"cc64:/cc64.sav/>"
 44540 getk$:ifk$=""then44540
-44550 if k$="1"then 44000
-44560 if k$="2"then 44100
-44570 if k$="3"then 44200
-44580 if k$="4"then 44300
-44590 if k$="5"then 44400
-44600 if k$="6"then 44500
-44610 if k$="7"then 44600
+44550 if k$="1"then 45000
+44560 if k$="2"then 45100
+44570 if k$="3"then 45200
+44580 if k$="4"then 45300
+44590 if k$="5"then 45400
+44600 if k$="6"then 45500
+44610 if k$="7"then 45600
+44620 if k$="8"then 45700
+44630 if k$="9"then 45800
 44999 goto 43540
 
-44000 print"please set a value"
-44010 input sa
-44020 goto 43080
+45000 print"please set a value (0=on:1=off)
+45010 input sb
+45020 if sb>1 then goto 45000
+45030 if sb<0 then goto 45000
+45040 goto 44080
+45100 print"please set a value"
+45110 input cc
+45120 goto 44080
+45200 print"please set a value"
+45210 input cg
+45220 goto 44080
+45300 print"please set a value"
+45310 input ca
+45320 goto 44080
+45400 print"please set a value"
+45410 input ga
+45420 goto 44080
+45500 print"please set a value"
+45510 input fa
+45520 goto 44080
+45600 print"please set a value"
+45610 input ma
+45620 goto 44080
+45700 print"please set a value"
+45710 input bn$
+45720 goto 44080
 
-44100 print"please set a value"
-44110 input sb
-44120 goto 43080
 
-44200 print"please set a value"
-44210 input sc
-44220 goto 43080
-
-44300 print"please set a value"
-44310 input sd
-44320 goto 43080
-
-44400 print"please set a value"
-44410 input se
-44420 goto 43080
-
-44500 print"please set a value"
-44510 input sf
-44520 goto 43080
-
-44600 print"{up}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right} .."
-44610 open 8,8,8,"@0:cc64.sav,s,w"
-44620 print#8,sa
-44630 print#8,sb
-44640 print#8,sc
-44650 print#8,sd
-44660 print#8,se
-44670 print#8,sf
-44680 close 8
-44690 goto 40180
+45800 print"{up}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right} .."
+45805 print"writing objects: 0% (0/1)"
+45810 open 8,8,8,"@0:cc64.sav,s,w"
+45815 print#8,sb
+45820 print#8,cc
+45825 print#8,cg
+45830 print#8,ca
+45835 print#8,ga
+45840 print#8,fa
+45845 print#8,ma
+45850 print#8,bn$
+45855 close 8
+45860 print"{up}writing objects: 100% (1/1)"
+45865 goto 40180
 
 60000 print"{clear}"
 60010 print chr$(147);

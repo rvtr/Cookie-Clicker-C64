@@ -38,21 +38,28 @@ Saves must be named cc64.sav and placed in the same directory as cookie.prg. (to
 ### Save file format:
 
 <p>
-Cookies
+	Stop key flag
+<br>Cookies
 <br>Cookie gain
 <br>Cursor amount
 <br>Grandma amount
 <br>Farm amount
 <br>Mine amount
+<br>Player name
+<br>
+<br>The stop key flag must be `0` or `1`.
+<br>`0` will prevent the player from stoping the program, and `1` allows the player to stop the program.
 
 ### Example save file:
 
-3426597
+	0
+<br>3426597
 <br>0.9823
 <br>230
 <br>54
 <br>32
-<br>1</p>
+<br>1
+<br>IANSKINNER1982</p>
 
 ## Credits and Notes
 
