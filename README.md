@@ -52,7 +52,7 @@ Saves must be named cc64.sav and placed in the same directory as cookie.prg. (to
 
 ### Example save file:
 
-	0
+<br>0
 <br>3426597
 <br>0.9823
 <br>230
