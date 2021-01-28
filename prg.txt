@@ -119,7 +119,6 @@
 4180 return
 4180 return
 
-Building Commodore BASIC prg with Input file /Users/mskinner/Development/Commodore/Cookie-Clicker-C64/prg.txt
 10000 rem settings start here
 10010 poke53280,0:poke53281,0
 10100 print"{clear}{grey1}UCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCI"

@@ -39,7 +39,7 @@
 41050 print#8,0
 41055 print#8,"someone"
 41060 close 8
-41070 print"{up}print"writing objects: 0% (1/1)"
+41070 print"{up}writing objects: 0% (1/1)"
 41080 goto 40180
 
 44000 print"{up}{right}{right}{right}{right}{right}{right}{right} e"
