@@ -1,250 +1,63 @@
 0 rem !to "build/cookie.prg"
-5 poke53280,14:poke53281,6:poke650,64:rem screen color, no keys repeat
-
-10 open 8,8,8,"cc64.sav,s,r"          : rem reads the first line
-15 input#8,sb                         : rem of the save file and
-20 close 8                            : rem checks stop key flag
-30 if sb=0 then poke788,52:poke792,193: rem 0=on, 1=off
-
-40 cc=0:cg=0:ca=0:ga=0:fa=0:ma=0:ft$="0":mt$="0":bn$="someone"
-50 ds$=chr$(17):rem cursor down
-60 rs$=chr$(29):rem cursor right
-70 ls$=chr$(157):rem cursor left
-80 c1=15:c2=100:c3=1100:c4=12000
-99 print"{clear}{home}"
-
-1000 print"{clear}{home}{grey2}UCCCCCCCCCCCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCI"
-1010 print"{grey2}B{wht} you have  0             {grey2}B{wht}cursor(c)  {grey2}B"
-1020 print"{grey2}B{wht} cookies                 {grey2}B{wht}"ca
-1025 print"{up}{grey2}B{wht} cookies                 {grey2}B{wht}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
-1030 print"{grey2}{$ab}CCCCCCCCCCCCCCCCCCCCCCCCC{$b3}{wht}cost:      {grey2}B"
-1040 print"{grey2}B                         {grey2}B{wht} 15        {grey2}B"
-1050 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
-1060 print"{grey2}B                         {grey2}B{wht}grandma(g) {grey2}B"
-1070 print"{grey2}B                         {grey2}B{wht}"ga
-1075 print"{up}{grey2}B{wht}                         {grey2}B{wht}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
-1080 print"{grey2}B       {brown}********          {grey2}B{wht}cost:      {grey2}B"
-1090 print"{grey2}B      {brown}*******{blk}**{brown}*         {grey2}B{wht} 100       {grey2}B"
-1100 print"{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
-1110 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B           B"
-1120 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B           B"
-1130 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B           B"
-1140 print"{grey2}B    {brown}**************       {grey2}B           B"
-1150 print"{grey2}B    {brown}*{blk}*{brown}************       {grey2}B           B"
-1160 print"{grey2}B    {brown}*************{brown}*       {grey2}B           B"
-1170 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B           B"
-1180 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B           B"
-1190 print"{grey2}B       {brown}********          {grey2}B           B"
-1200 print"{grey2}B                         {$ab}CCCCCCCCCCC{$b3}"
-1210 print"{grey2}B                         B{grey1}settings(s){grey2}B"
-1220 print"{grey2}B v2.9.0-1.0              B{grey1}upgrades(u){grey2}B"
-1230 print"{grey2}JCCCCCCCCCCCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCK"
-
-1300 print"{home}{down}{down}{down}{down}B "bn$"'s bakery "
-1310 print"{up}B{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B{wht} 15        {grey2}B"
-1320 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
-
-1500 ft$="0":mt$="0" 
-
-1900 if ft$="0" then gosub 4000
-1910 if mt$="0" then gosub 4100
-1920 get k$:if k$= "" then 1990
-1930 if k$=" " then 2100 
-1940 if k$="c" then 2200
-1950 if k$="g" then 2300 
-1960 if k$="f" then 2400 
-1970 if k$="m" then 2500
-1980 if k$="s" then 10000 
-1990 rem start of auto add
-2000 cc=cc+cg
-2010 print"{home}{down}{grey2}B{wht} you have "int(cc)
-2020 goto 1900
-
-
-2099 rem part 2
-
-
-2100 cc=cc+1
-2110 print"{home}{down}{grey2}B{wht} you have "int(cc)
-2120 goto 1900
-
-2200 if cc<15 then 1900 rem CURSORS
-2210 cc=cc-15:cg=cg+.04:ca=ca+1
-2220 print"{home}{down}{grey2}B{wht} you have "int(cc)
-2225 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2230 print"{home}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"ca
-2240 goto 1900
-
-2300 if cc<100 then 1900 rem GRANDMAS
-2310 cc=cc-100:cg=cg+.05:ga=ga+1
-2320 print"{home}{down}{grey2}B{wht} you have "int(cc)
-2325 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2330 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"ga
-2340 goto 1900
-
-2400 if cc<1100 then 1900 rem MINES
-2410 cc=cc-1100:cg=cg+.06:ma=ma+1
-2420 print"{home}{down}{grey2}B{wht} you have "int(cc)
-2425 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2430 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"ma
-2440 goto 1900
-
-2500 if cc<12000 then 1900 rem FARMS
-2510 cc=cc-12000:cg=cg+.1:fa=fa+1
-2520 print"{home}{down}{grey2}B{wht} you have "int(cc)
-2525 print"{home}{down}{grey2}B{wht} you have                {grey2}B
-2530 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{grey2}B{wht}"fa
-2540 goto 1900
-
-4000 if cc<400 then return
-4010 ft$="1"
-4020 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B     {brown}***{blk}*{brown}********        {grey2}{$ab}CCCCCCCCCCC{$b3}"
-4030 print"{grey2}B    {brown}***{blk}**{brown}*********       {grey2}B{wht}farm(f)    {grey2}B"
-4040 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}"fa
-4045 print"{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht} {right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
-4050 print"{up}{grey2}B    {brown}********{blk}**{brown}****       {grey2}B{wht}cost:      {grey2}B"
-4060 print"{grey2}B    {brown}**************       {grey2}B{wht} 1100      {grey2}B"
-4070 print"{grey2}B    {brown}*{blk}*{brown}************       {grey2}{$ab}CCCCCCCCCCC{$b3}"
-4080 return
-
-4100 if cc<6000 then return
-4110 mt$="1"
-4120 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grey2}B    {brown}*{blk}*{brown}***********{brown}*       {grey2}{$ab}CCCCCCCCCCC{$b3}"
-4130 print"{grey2}B    {brown}*************{brown}*       {grey2}B{wht}mine(m)    {grey2}B"
-4140 print"{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht}"ma
-4145 print"{up}{grey2}B     {brown}******{blk}**{brown}****        {grey2}B{wht} {right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{grey2}B"
-4150 print"{grey2}B      {brown}*****{blk}**{brown}***         {grey2}B{wht}cost:      {grey2}B"
-4160 print"{grey2}B       {brown}********          {grey2}B{wht} 12000     {grey2}B"
-4170 print"{grey2}B                         {grey2}{$ab}CCCCCCCCCCC{$b3}"
-4180 return
-4180 return
-
-10000 rem settings start here
-10010 poke53280,0:poke53281,0
-10100 print"{clear}{grey1}UCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCI"
-10110 print"B                                     B"
-10120 print"B {wht}bakery name (b):                    {grey1}B"
-10130 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
-10140 print"B                                     B"
-10150 print"B {wht}save (s)                            {grey1}B"
-10160 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
-10170 print"B                                     B"
-10180 print"B {wht}load (l)                            {grey1}B"
-10190 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
-10200 print"B                                     B"
-10210 print"B {wht}manage saves (m)                    {grey1}B"
-10220 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
-10230 print"B                                     B"
-10240 print"B {yel}testmenu (t)                        {grey1}B"
-10250 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
-10260 print"B                                     B"
-10270 rem print"B                                     B"
-10280 rem print"B                                     B"
-10290 rem print"B                                     B"
-10300 rem print"B                                     B"
-10310 print"B {wht}exit settings (e)                   {grey1}B"
-10320 print"B{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}B"
-10330 print"B                                     B"
-10340 print"JCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCK"
-
-11200 getk$:ifk$=""then 11200
-11210 ifk$="b"then goto 12000
-11220 ifk$="s"then goto 12100
-11230 ifk$="l"then goto 12200
-11240 ifk$="m"then goto 12300
-11250 ifk$="e"then goto 15000
-11260 ifk$="t"then goto 40000
-11270 goto 11200
-
-12000 print"{clear}{down}{wht}please enter a new name (14 characters max):"
-12010 input nn$
-12020 nl=len(nn$)
-12030 if nl<15 then 12050
-12040 print"{up}{up}{up}{red}error: name too long{wht}":getk$:ifk$=""goto12040
-12045 goto 12000
-12050 print"are you sure? (y/n)"
-12055 getk$:ifk$=""then12055
-12060 ifk$="y"then 12080
-12070 goto 10100
-12080 bn$=nn$:goto10100
-
-12100 print"{clear}{wht}writing save data..."
-12110 open 8,8,8,"@0:cc64.sav,s,w"
-12110 print#8,sb
-12120 print#8,cc
-12130 print#8,cg
-12140 print#8,ca
-12145 print#8,ga
-12150 print#8,fa
-12155 print#8,ma
-12160 print#8,bn$
-12165 close 8
-12170 print"saving complete"
-12180 goto 10000
-
-12200 print"{clear}{wht}loading save data..."
-12210 open 8,8,8,"cc64.sav,s,r" 
-12215 input#8,sb
-12220 input#8,cc
-12222 input#8,cg
-12224 input#8,ca
-12226 input#8,ga
-12228 input#8,fa
-12230 input#8,ma
-12235 input#8,bn$
-12260 close 8
-12270 print"loading complete"
-12275 poke53280,14:poke53281,6
-12280 goto 10000
+10 open 8,8,8,"cc64.sav,s,r"          
+20 input#8,f1:close 8                                  
+40 if fl=0 then f1=128:f2=52:f3=193
+50 if fl=1 then f1=128:f2=49:f3=71
+60 if fl=2 then f1=0:f2=52:f3=193
+70 if fl=3 then f1=0:f2=49:f3=71
+80 poke650,f1:poke788,f2:poke792,f3
+90 gs=1:bn$="someone's":mn$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+100 rem stick news here. 
+110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
+120 print"B               B                      B";
+130 print"B               B                      B";
+140 print"{$ab}CCCCCCCCCCCCCCC{$b3}                      B";
+150 print"B               B                      B";
+160 print"B               B                      B";
+170 print"B               B                      B";
+180 print"B               B                      B";
+190 print"B               B                      B";
+200 print"B               B                      B";
+210 print"B               B                      B";
+220 print"B               B                      B";
+230 print"B               B                      B";
+240 print"B               B                      B";
+250 print"B               B                      B";
+260 print"B               B                      B";
+270 print"B               B                      B";
+280 print"B               B                      B";
+290 print"B               B                      B";
+300 print"B               B                      B";
+310 print"B               B                      B";
+320 print"B{wht} v2.9.0-1.0    {brown}B                      B";
+330 print"JCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCCCCCCCCCCCCK";
+340 print"{wht} {rvon}f1{rvof} store {rvon}f3{rvof} options {rvon}f5{rvof} stats {rvon}f7{rvof} ascend";
+500 print"{home}{down}{right}"int(cc)
+510 print"{brown}B{wht} cookies"
+520 print"{down}{brown}B{wht}"bn$
+530 print"{brown}B{wht}    bakery"
+1000 on gs gosub 2000, 
+1010 goto 1000
 
 
 
+2000 rem store stuff
+2010 print"{home}{down}"mn$"t                     ",
+2020 printmn$"e                     ",
+2030 printmn$"s                     ",
+2040 printmn$"t                     ",
+2050 printmn$"i                     ",
+2060 printmn$"n                     ",
+2070 printmn$"g                     ",
+2080 printmn$"                      ",
+2090 printmn$"s                     ",
+2100 printmn$"t                     ",
+2110 printmn$"u                     ",
+2120 printmn$"f                     ",
+2130 printmn$"f                     ",
+2140 printmn$"                      ",
+2150 printmn$"h                     ",
+2160 printmn$"i                     ",
 
-
-
-
-
-12300 print"{home}{down}{down}{down}{down}{down}{down}{right}{right}{right}{right}*CCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
-12310 print"{right}{right}{right}{right}B (1) erase current save      B"
-12320 print"{right}{right}{right}{right}B (2) erase cc64.sav          B"
-12330 rem print"{right}{right}{right}{right}B (3) create 2nd save         B"
-12340 rem print"{right}{right}{right}{right}B (4) erase 2nd save          B"
-12350 print"{right}{right}{right}{right}B (3) exit                    B"
-12360 print"{right}{right}{right}{right}*CCCCCCCCCCCCCCCCCCCCCCCCCCCCC*"
-12400 getk$:ifk$=""then12400
-12410 ifk$="1"then 12500
-12420 ifk$="2"then 12600
-12450 ifk$="3"then 10000
-12460 goto 12400
-
-12500 cc=0:cg=0:ca=0:ga=0:fa=0:ma=0:ft$="0":mt$="0":bn$="someone"
-12510 goto 10000
-
-12600 open 8,8,8,"@0:cc64.sav,s,w"
-12610 print#8,sb
-12610 print#8,0
-12620 print#8,0
-12630 print#8,0
-12640 print#8,0
-12650 print#8,0
-12660 print#8,0
-12670 close 8
-12680 goto 10000
-
-
-
-
-
-
-15000 print"{clear}"
-15010 poke53280,14:poke53281,6
-15030 goto 1000
-
-40000 print"{clear}"
-40010 print chr$(147);
-40020 q$=chr$(34)
-40030 d$=chr$(17)
-40040 print"load"q$"testmenu"q$",8"
-40050 printd$;d$;d$;d$;"run"
-40060 rem load keyboard buffer and flush it
-40070 poke631,19:poke632,13:poke633,13:poke198,3
+60000 get k$
+60010 goto 60000

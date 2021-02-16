@@ -21,53 +21,15 @@
 </a>
 </p>
 
-Cookie Clicker C64 (or CC64 for short) is a Cookie clicker clone for the Commodore 64.
+Cookie Clicker C64 (or CC64 for short) is a WIP Cookie clicker clone for the Commodore 64.
 
-## How to play : 
 
-- Press the space bar to 'click' for cookies.
-
-- Buy/select items by pressing the letter beside them. (the one in brackets)
-
-## Saves:
-
-Saves must be named cc64.sav and placed in the same directory as cookie.prg. (to copy the save onto a d64 file, use <a href="http://lallafa.de/blog/c64-projects/diskimagery64/" target="_blank">DiskImagery64</a> or another disk editor.)
-<br>Currently saves are only available in the nightly builds.
- 
-
-### Save file format:
-
-<p>
-	Stop key flag
-<br>Cookies
-<br>Cookie gain
-<br>Cursor amount
-<br>Grandma amount
-<br>Farm amount
-<br>Mine amount
-<br>Player name
-<br>
-<br>The stop key flag must be `0` or `1`.
-<br>`0` will prevent the player from stoping the program, and `1` allows the player to stop the program.
-
-### Example save file:
-
-<br>0
-<br>3426597
-<br>0.9823
-<br>230
-<br>54
-<br>32
-<br>1
-<br>IANSKINNER1982</p>
-
-## Credits and Notes
 
 Credits: 
-- [@Orteil](https://orteil.dashnet.org/) (for making the original cookie clicker game)
+- [@Orteil](https://orteil.dashnet.org/) for making the original cookie clicker game
+- [@drskinner](https://github.com/drskinner/) 
 
 Notes: 
-- Due to the way I have everything set up, some of my commits will appear as commits by [@drskinner](https://github.com/drskinner/)
 - Editing program lines larger than 80 characters on the C64 (or on an emulator) will result in parts of them being deleted
 
 
