@@ -23,6 +23,8 @@
 
 Cookie Clicker C64 (or CC64 for short) is a Cookie clicker clone for the Commodore 64.
 
+## No this project is not dead. I have been doing a lot of planning for a whole new program design. Join my Discord server if you want to see my progress so far.<br> - Ian Skinner
+
 ## How to play : 
 
 - Press the space bar to 'click' for cookies.
