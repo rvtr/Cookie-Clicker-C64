@@ -52,12 +52,13 @@
 2090 goto2000
 
 2500 forx=itoj
-2510 ?ml$na$(x)ia(x)
-2520 ?ml$bd$(x)
-2530 ?ml$pr(x)"{down}"
-2540 next
-2550 gosub
-2560 return
+2510 ?r1$na$(x)
+2520 ?r1$r2$ia(x)
+2530 ?r1$bd$(x)
+2540 ?r1$pr(x)"{down}"
+2550 next
+2560 gosub 3000
+2570 return
 
 3000 get k$
 3010 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")
