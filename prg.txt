@@ -6,7 +6,8 @@
 60 if fl=2 then f1=0:f2=52:f3=193
 70 if fl=3 then f1=0:f2=49:f3=71
 80 poke650,f1:poke788,f2:poke792,f3
-90 gs=1:bn$="someone's":mn$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+90 gs=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 100 rem stick news here. 
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
 120 print"B               B                      B";
@@ -39,25 +40,43 @@
 1000 on gs gosub 2000, 
 1010 goto 1000
 
+2000 ifms<>1thenreturn
+2010 ifss=1theni=0:j=3
+2020 ifss=2theni=4:j=7
+2030 ifss=3theni=8:j=12
+2040 ifss=4theni=13:j=16
+2050 ifss=5theni=17:j=19
+2060 ts=ss
+2070 tm=ms
+2080 gosub2500
+2090 goto2000
 
+2500 forx=itoj
+2510 ?ml$na$(x)ia(x)
+2520 ?ml$bd$(x)
+2530 ?ml$pr(x)"{down}"
+2540 next
+2550 gosub
+2560 return
 
-2000 rem store stuff
-2010 print"{home}{down}"mn$"t                     ",
-2020 printmn$"e                     ",
-2030 printmn$"s                     ",
-2040 printmn$"t                     ",
-2050 printmn$"i                     ",
-2060 printmn$"n                     ",
-2070 printmn$"g                     ",
-2080 printmn$"                      ",
-2090 printmn$"s                     ",
-2100 printmn$"t                     ",
-2110 printmn$"u                     ",
-2120 printmn$"f                     ",
-2130 printmn$"f                     ",
-2140 printmn$"                      ",
-2150 printmn$"h                     ",
-2160 printmn$"i                     ",
+3000 get k$
+3010 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")
+3020 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}")
+3030 ifk$="+"thenss=ss+1
+3040 ifk$="-"thenss=ss-1
+3050 ifss=0thenss=1
+3060 ifss=6thenss=5
+3070 on x gosub 3500, <other item subs>
+3080 ifss<>tsthenreturn
+3090 isms<>tmthenreturn 
+3100 goto 3000
 
-60000 get k$
-60010 goto 60000
+3500 x=0:y=.1
+3510 gosub 100
+3520 printms$"{down3}"pr(x)
+3530 return
+
+10000 ifx=1then?r1$r2$"{down}{down}"ia(x)
+10010 ifx=2then?r1$r2$"{down}{down}{down}{down}{down}{down}{down}"ia(x)
+10020 ifx=3then?r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(x)
+10030 ifx=4then?r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(x)
