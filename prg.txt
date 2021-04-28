@@ -9,7 +9,7 @@
 70 next
 80 close 8
 90 ms=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
-95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 100 rem stick news here. 
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
 120 print"B               B                      B";
@@ -60,7 +60,7 @@
 2530 ?r1$bd$(x)
 2540 ?r1$pr(x)"{down}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}":y=y+1
 2550 next
-2555 ?"{down}        prev/next(-/+)"
+2555 ?"{down}"r1$"        prev/next(-/+)"
 2560 gosub 3000
 2570 return
 
@@ -96,5 +96,6 @@
 60010 b=b+cg(x)
 60020 next
 60030 cc=cc+b
+60040 ?"{home}{down}{right}"int(cc)
 60040 return
 
