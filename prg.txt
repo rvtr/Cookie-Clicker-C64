@@ -1,11 +1,12 @@
 0 rem !to "build/cookie.prg"
-10 open 8,8,8,"cc64.sav,s,r"          
-20 input#8,f1:close 8                                  
-40 if fl=0 then f1=128:f2=52:f3=193
-50 if fl=1 then f1=128:f2=49:f3=71
-60 if fl=2 then f1=0:f2=52:f3=193
-70 if fl=3 then f1=0:f2=49:f3=71
-80 poke650,f1:poke788,f2:poke792,f3
+10 dimna$(17):dimia(17):dimbd$(17):dimpr(17)
+20 open 8,8,8,"storedat,s,r"          
+30 forx=0to17
+40 input#8,na$(x)
+50 input#8,bd$(x)
+60 input#8,pr(x)
+70 next
+80 close 8
 90 gs=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 100 rem stick news here. 
@@ -48,14 +49,15 @@
 2050 ifss=5theni=17:j=19
 2060 ts=ss
 2070 tm=ms
-2080 gosub2500
-2090 goto2000
+2080 y=1
+2090 gosub2500
+2100 goto2000
 
 2500 forx=itoj
-2510 ?r1$na$(x)
+2510 ?r1$"{rvon}"y"{rvof} "na$(x)
 2520 ?r1$r2$ia(x)
 2530 ?r1$bd$(x)
-2540 ?r1$pr(x)"{down}"
+2540 ?r1$pr(x)"{down}":y=y+1
 2550 next
 2560 gosub 3000
 2570 return
