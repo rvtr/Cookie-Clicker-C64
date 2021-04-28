@@ -8,7 +8,7 @@
 60 input#8,pr(x)
 70 next
 80 close 8
-90 gs=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+90 ms=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 100 rem stick news here. 
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
@@ -39,7 +39,7 @@
 510 print"{brown}B{wht} cookies"
 520 print"{down}{brown}B{wht}"bn$
 530 print"{brown}B{wht}    bakery"
-1000 on gs gosub 2000, 
+1000 on ms gosub 2000, 
 1010 goto 1000
 
 2000 ifms<>1thenreturn
