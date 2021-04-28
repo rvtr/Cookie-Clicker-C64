@@ -64,6 +64,7 @@
 2570 return
 
 3000 get k$
+3005 gosub 60000
 3010 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")
 3020 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}")
 3030 ifk$="+"thenss=ss+1
@@ -88,4 +89,11 @@
 3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
 3610 x=0
 3620 return
+
+
+60000 fora=0to17
+60010 b=b+cg(x)
+60020 next
+60030 cc=cc+b
+60040 return
 
