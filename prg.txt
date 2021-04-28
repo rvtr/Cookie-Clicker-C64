@@ -1,9 +1,10 @@
 0 rem !to "build/cookie.prg"
-10 dimna$(17):dimia(17):dimbd$(17):dimpr(17)
+10 dimna$(17):dimia(17):dimbd$(17):dimbg(17):dimpr(17)
 20 open 8,8,8,"storedat,s,r"          
 30 forx=0to17
 40 input#8,na$(x)
 50 input#8,bd$(x)
+55 input#8,bg(x)
 60 input#8,pr(x)
 70 next
 80 close 8
@@ -69,17 +70,21 @@
 3040 ifk$="-"thenss=ss-1
 3050 ifss=0thenss=1
 3060 ifss=6thenss=5
-3070 on x gosub 3500, <other item subs>
+3070 ifx<>0gosub3500
 3080 ifss<>tsthenreturn
 3090 isms<>tmthenreturn 
 3100 goto 3000
 
-3500 x=0:y=.1
-3510 gosub 100
-3520 printms$"{down3}"pr(x)
-3530 return
+3500 y=i+x-1
+3510 if cc<pr(y)thenx=0:return
+3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15
+3530 ifx=1then?"{home}"r1$r2$"{down}{down}"ia(y)
+3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3560 ifx=4then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3570 ifx=1then?"{home}"r1$"{down}{down}{down}{down}"pr(y)
+3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3610 return
 
-10000 ifx=1then?r1$r2$"{down}{down}"ia(x)
-10010 ifx=2then?r1$r2$"{down}{down}{down}{down}{down}{down}{down}"ia(x)
-10020 ifx=3then?r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(x)
-10030 ifx=4then?r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(x)
