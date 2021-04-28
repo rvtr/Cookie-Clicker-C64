@@ -58,8 +58,9 @@
 2510 ?r1$"{rvon}"y"{rvof} "na$(x)
 2520 ?r1$r2$ia(x)
 2530 ?r1$bd$(x)
-2540 ?r1$pr(x)"{down}":y=y+1
+2540 ?r1$pr(x)"{down}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}":y=y+1
 2550 next
+2555 ?"{down}        prev/next(-/+)"
 2560 gosub 3000
 2570 return
 
