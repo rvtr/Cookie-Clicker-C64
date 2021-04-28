@@ -86,5 +86,6 @@
 3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
 3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
 3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
-3610 return
+3610 x=0
+3620 return
 
