@@ -62,7 +62,8 @@
 2530 ?r1$bd$(x)
 2540 ?r1$"{up}"pr$(x)
 2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
-2555 ?"{down}{donw}{down}"r1$"        prev/next(-/+)"
+2550 next
+2555 ?"{down}{down}{down}"r1$"        prev/next(-/+)"
 2560 gosub 3000
 2570 return
 
