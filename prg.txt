@@ -6,10 +6,11 @@
 50 input#8,bd$(x)
 55 input#8,bg(x)
 60 input#8,pr(x)
+65 ?x+1"/18"
 70 next
 80 close 8
 90 ms=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
-95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}":ss=1
 100 rem stick news here. 
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
 120 print"B               B                      B";
@@ -37,9 +38,9 @@
 340 print"{wht} {rvon}f1{rvof} store {rvon}f3{rvof} options {rvon}f5{rvof} stats {rvon}f7{rvof} ascend";
 500 print"{home}{down}{right}"int(cc)
 510 print"{brown}B{wht} cookies"
-520 print"{down}{brown}B{wht}"bn$
+520 ?"{brown}B{wht}"bn$
 530 print"{brown}B{wht}    bakery"
-1000 on ms gosub 2000, 
+1000 on ms gosub 2000, 2000, 2000, 2000
 1010 goto 1000
 
 2000 ifms<>1thenreturn
@@ -55,12 +56,13 @@
 2100 goto2000
 
 2500 forx=itoj
-2510 ?r1$"{rvon}"y"{rvof} "na$(x)
-2520 ?r1$r2$ia(x)
+2505 ifx=ithen?"{home}"
+2510 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
+2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
-2540 ?r1$pr(x)"{down}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}":y=y+1
-2550 next
-2555 ?"{down}"r1$"        prev/next(-/+)"
+2540 ?r1$"{up}"pr$(x)
+2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
+2555 ?"{down}{donw}{down}"r1$"        prev/next(-/+)"
 2560 gosub 3000
 2570 return
 
@@ -72,9 +74,9 @@
 3040 ifk$="-"thenss=ss-1
 3050 ifss=0thenss=1
 3060 ifss=6thenss=5
-3070 ifx<>0gosub3500
+3070 ifx<>0thengosub3500
 3080 ifss<>tsthenreturn
-3090 isms<>tmthenreturn 
+3090 ifms<>tmthenreturn 
 3100 goto 3000
 
 3500 y=i+x-1
