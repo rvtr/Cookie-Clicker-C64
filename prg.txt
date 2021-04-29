@@ -43,12 +43,11 @@
 1000 on ms gosub 2000, 2000, 2000, 2000
 1010 goto 1000
 
-2000 ifms<>1thenreturn
-2010 ifss=1theni=0:j=3
-2020 ifss=2theni=4:j=7
-2030 ifss=3theni=8:j=12
-2040 ifss=4theni=13:j=16
-2050 ifss=5theni=17:j=19
+2000 ifms<>1thenreturn 
+2010 ifss=1theni=0:j=4
+2020 ifss=2theni=5:j=9
+2030 ifss=3theni=10:j=14
+2040 ifss=4theni=15:j=18
 2060 ts=ss
 2070 tm=ms
 2080 y=1
@@ -63,37 +62,49 @@
 2540 ?r1$"{up}"pr$(x)
 2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
 2550 next
-2555 ?"{down}{down}{down}"r1$"        prev/next(-/+)"
-2560 gosub 3000
+2555 ifj=18then?r1$"{down}{down}{down}        prev/next(-/+)"
+2560 ?r1$"        prev/next(-/+)"
+2565 gosub 3000
 2570 return
 
 3000 get k$
-3005 gosub 60000
-3010 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")
-3020 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}")
-3030 ifk$="+"thenss=ss+1
-3040 ifk$="-"thenss=ss-1
-3050 ifss=0thenss=1
-3060 ifss=6thenss=5
-3070 ifx<>0thengosub3500
-3080 ifss<>tsthenreturn
-3090 ifms<>tmthenreturn 
-3100 goto 3000
+3010 gosub 60000
+3020 ifval(k$)<5then3050
+3030 ifval(k$)<1then3050
+3040 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")-5*(k$="5")
+3050 gosub 50000
+3060 ifk$="+"thenss=ss+1
+3070 ifk$="-"thenss=ss-1
+3080 ifss=0thenss=1
+3090 ifss=5thenss=4
+3000 ifx<>0thengosub3500
+3010 ifss<>tsthenreturn
+3120 ifms<>tmthenreturn 
+3130 goto 3000
 
 3500 y=i+x-1
 3510 if cc<pr(y)thenx=0:return
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15
 3530 ifx=1then?"{home}"r1$r2$"{down}{down}"ia(y)
-3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3560 ifx=4then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}"ia(y)
+3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3560 ifx=4then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3565 ifx=5then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
 3570 ifx=1then?"{home}"r1$"{down}{down}{down}{down}"pr(y)
-3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
-3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
-3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
 3610 x=0
 3620 return
 
+49999 rem adding and menu selecting subroutines
+50000 ifk$="{f1}"then50040
+50010 ifk$="{f3}"then50040
+50020 ifk$="{f5}"then50040
+50030 return
+50040 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}")
+50050 return
 
 60000 fora=0to17
 60010 b=b+cg(x)
