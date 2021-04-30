@@ -73,6 +73,7 @@
 3030 ifval(k$)<1then3050
 3040 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")-5*(k$="5")
 3050 gosub 50000
+3055 ifk$=" "thencc=cc+1
 3060 ifk$="+"thenss=ss+1
 3070 ifk$="-"thenss=ss-1
 3080 ifss=0thenss=1
