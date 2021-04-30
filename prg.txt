@@ -40,7 +40,7 @@
 510 print"{brown}B{wht} cookies"
 520 ?"{brown}B{wht}"bn$
 530 print"{brown}B{wht}    bakery"
-1000 on ms gosub 2000, 2000, 2000, 2000
+1000 on ms gosub 2000, 5000, 5000
 1010 goto 1000
 
 2000 ifms<>1thenreturn 
@@ -59,7 +59,7 @@
 2510 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
-2540 ?r1$"{up}"pr$(x)
+2540 ?r1$"{up}"pr(x)
 2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
 2550 next
 2555 ifj=18then?r1$"{down}{down}{down}        prev/next(-/+)"
@@ -98,6 +98,15 @@
 3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
 3610 x=0
 3620 return
+
+5000 ifms<>2thenreturn 
+5010 tc=cs
+5020 tm=ms
+5030 gosub5100
+5040 goto5000
+
+
+
 
 49999 rem adding and menu selecting subroutines
 50000 ifk$="{f1}"then50040
