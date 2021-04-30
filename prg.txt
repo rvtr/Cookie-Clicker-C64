@@ -1,5 +1,5 @@
 0 rem !to "build/cookie.prg"
-10 dimna$(17):dimia(17):dimbd$(17):dimbg(17):dimpr(17)
+10 dimna$(17):dimia(17):dimbd$(17):dimbg(17):dimpr(17):dimcg(17)
 20 open 8,8,8,"storedat,s,r"          
 30 forx=0to17
 40 input#8,na$(x)
@@ -63,7 +63,7 @@
 2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
 2550 next
 2555 ifj=18then?r1$"{down}{down}{down}        prev/next(-/+)"
-2560 ?r1$"        prev/next(-/+)"
+2560 ?r1$"{up}        prev/next(-/+)"
 2565 gosub 3000
 2570 return
 
