@@ -50,13 +50,18 @@
 2040 ifss=4theni=15:j=18
 2060 ts=ss
 2070 tm=ms
-2080 y=1
-2090 gosub2500
+2090 gosub2300
 2100 goto2000
+
+2300 forx=1to21 : rem clears the menu 
+2310 ifx=1then?"home"
+2320 ?r1$""
+2330 next
+2340 gosub2500
 
 2500 forx=itoj
 2505 ifx=ithen?"{home}"
-2510 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
+2510 ?r1$"{up}{rvon}"right$(str$(y+1),1)"{rvof} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
 2540 ?r1$"{up}"pr(x)
@@ -67,24 +72,25 @@
 2565 gosub 3000
 2570 return
 
-3000 get k$
+3000 get k$:x=0
 3010 gosub 60000
-3020 ifval(k$)<5then3050
+3020 ifval(k$)>5then3050
 3030 ifval(k$)<1then3050
 3040 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")-5*(k$="5")
+3045 gosub 3500 : rem buying routine
 3050 gosub 50000
 3055 ifk$=" "thencc=cc+1
 3060 ifk$="+"thenss=ss+1
 3070 ifk$="-"thenss=ss-1
 3080 ifss=0thenss=1
 3090 ifss=5thenss=4
-3000 ifx<>0thengosub3500
-3010 ifss<>tsthenreturn
+3110 ifss<>tsthenreturn
 3120 ifms<>tmthenreturn 
 3130 goto 3000
 
-3500 y=i+x-1
-3510 if cc<pr(y)thenx=0:return
+3500 y=i+x
+3505 y=y-1
+3510 if cc<pr(y)then3610
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15
 3530 ifx=1then?"{home}"r1$r2$"{down}{down}"ia(y)
 3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}"ia(y)
@@ -100,6 +106,7 @@
 3620 return
 
 5000 ifms<>2thenreturn 
+5005 ms=1:goto1
 5010 tc=cs
 5020 tm=ms
 5030 gosub5100
