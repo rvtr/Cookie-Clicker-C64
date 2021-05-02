@@ -54,7 +54,7 @@
 2100 goto2000
 
 2300 forx=1to20: rem clears the menu 
-2310 ifx=1then?"{home}"r1$"{down}                      "
+2310 ifx=1then?"{home}"r1$"{down}                      ";
 2320 ?r1$"{right}                      ";
 2330 next
 2340 gosub2500
