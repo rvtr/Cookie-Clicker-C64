@@ -47,27 +47,27 @@
 2010 ifss=1theni=0:j=4
 2020 ifss=2theni=5:j=9
 2030 ifss=3theni=10:j=14
-2040 ifss=4theni=15:j=18
+2040 ifss=4theni=15:j=17
 2060 ts=ss
 2070 tm=ms
 2090 gosub2300
 2100 goto2000
 
-2300 forx=1to21 : rem clears the menu 
-2310 ifx=1then?"home"
-2320 ?r1$""
+2300 forx=1to20: rem clears the menu 
+2310 ifx=1then?"{home}"r1$"{down}                      "
+2320 ?r1$"{right}                      ";
 2330 next
 2340 gosub2500
 
-2500 forx=itoj
+2500 y=1:forx=itoj
 2505 ifx=ithen?"{home}"
-2510 ?r1$"{up}{rvon}"right$(str$(y+1),1)"{rvof} "na$(x)
+2510 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
 2540 ?r1$"{up}"pr(x)
 2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
 2550 next
-2555 ifj=18then?r1$"{down}{down}{down}        prev/next(-/+)"
+2555 ifj=17then?r1$"{down}{down}{down}{down}{down}{down}{down}        prev/next(-/+)"
 2560 ?r1$"{up}        prev/next(-/+)"
 2565 gosub 3000
 2570 return
@@ -92,16 +92,16 @@
 3505 y=y-1
 3510 if cc<pr(y)then3610
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15
-3530 ifx=1then?"{home}"r1$r2$"{down}{down}"ia(y)
-3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}"ia(y)
-3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3560 ifx=4then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3565 ifx=5then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3570 ifx=1then?"{home}"r1$"{down}{down}{down}{down}"pr(y)
-3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
-3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
-3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
-3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"pr(y)
+3530 ifx=1then?"{home}"r1$r2$"{down}"ia(y)
+3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}"ia(y)
+3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3560 ifx=4then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3565 ifx=5then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
+3570 ifx=1then?"{home}"r1$"{down}{down}{down}"int(pr(y))
+3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
+3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
+3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
+3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
 3610 x=0
 3620 return
 
