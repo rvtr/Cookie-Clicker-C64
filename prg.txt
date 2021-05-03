@@ -74,16 +74,18 @@
 
 3000 get k$:x=0
 3010 gosub 60000
-3020 ifval(k$)>5then3050
-3030 ifval(k$)<1then3050
-3040 x=-1*(k$="1")-2*(k$="2")-3*(k$="3")-4*(k$="4")-5*(k$="5")
-3045 gosub 3500 : rem buying routine
-3050 gosub 50000
-3055 ifk$=" "thencc=cc+1:?"{home}{down}{right}"int(cc)
-3060 ifk$="+"thenss=ss+1
-3070 ifk$="-"thenss=ss-1
-3080 ifss=0thenss=1
-3090 ifss=5thenss=4
+3015 ifval(k$)>5then3065
+3020 ifval(k$)<1then3065
+3025 x=val(k$)
+3030 ifk$="{f3}"thenms=2
+3035 ifk$="{f5}"thenms=3
+3065 gosub 3500 : rem buying routine
+3070 gosub 50000
+3075 ifk$=" "thencc=cc+1:?"{home}{down}{right}"int(cc)
+3080 ifk$="+"thenss=ss+1
+3085 ifk$="-"thenss=ss-1
+3090 ifss=0thenss=1
+3095 ifss=5thenss=4
 3110 ifss<>tsthenreturn
 3120 ifms<>tmthenreturn 
 3130 goto 3000
