@@ -19,19 +19,19 @@
 150 print"B               B                      B";
 160 print"B               B                      B";
 170 print"B               B                      B";
-180 print"B               B                      B";
-190 print"B               B                      B";
-200 print"B               B                      B";
-210 print"B               B                      B";
-220 print"B               B                      B";
-230 print"B               B                      B";
-240 print"B               B                      B";
-250 print"B               B                      B";
-260 print"B               B                      B";
-270 print"B               B                      B";
-280 print"B               B                      B";
-290 print"B               B                      B";
-300 print"B               B                      B";
+180 print"B     {rvon}     {rvof}     B                      B";
+190 print"B    {rvon}  {blk}  {brown}   {rvof}    B                      B";
+200 print"B   {rvon}       {blk} {brown} {rvof}   B                      B";
+210 print"B  {rvon}   {blk}  {brown} {blk}  {brown}   {rvof}  B                      B";
+220 print"B {rvon}    {blk}  {brown}  {blk}  {brown}   {rvof} B                      B";
+230 print"B {rvon}             {rvof} B                      B";
+240 print"B {rvon}             {rvof} B                      B";
+250 print"B {rvon}         {blk}  {brown}  {rvof} B                      B";
+260 print"B {rvon}   {blk} {brown} {blk} {brown}  {blk}  {brown}   {rvof} B                      B";
+270 print"B  {rvon}   {blk}  {brown}  {blk}  {brown}  {rvof}  B                      B";
+280 print"B   {rvon}         {rvof}   B                      B";
+290 print"B    {rvon}       {rvof}    B                      B";
+300 print"B     {rvon}     {rvof}     B                      B";
 310 print"B               B                      B";
 320 print"B{wht} v2.9.0-1.0    {brown}B                      B";
 330 print"JCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCCCCCCCCCCCCK";
@@ -39,24 +39,21 @@
 500 print"{home}{down}{right}"int(cc)
 510 print"{brown}B{wht} cookies"
 520 ?"{brown}B{wht}"bn$
-530 print"{brown}B{wht}    bakery"
+530 print"{up}{brown}B{wht}    bakery"
 1000 on ms gosub 2000, 5000, 5000
 1010 goto 1000
 
 2000 ifms<>1thenreturn 
-2010 ifss=1theni=0:j=4
-2020 ifss=2theni=5:j=9
-2030 ifss=3theni=10:j=14
-2040 ifss=4theni=15:j=17
-2060 ts=ss
-2070 tm=ms
+
+
+2010 ifss>0theni=0:j=4:ifss>1theni=5:j=9:ifss>2theni=10:j=14:ifss>3theni=15:j=17 :rem set ranges for the arrays
+2060 ts=ss:tm=ms
 2090 gosub2300
 2100 goto2000
 
 2300 forx=1to20: rem clears the menu 
 2310 ifx=1then?"{home}"r1$"{down}                      ";
-2320 ?r1$"{right}                      ";
-2330 next
+2320 ?r1$"{right}                      ";:next
 2340 gosub2500
 
 2500 y=1:forx=itoj
@@ -72,13 +69,11 @@
 2565 gosub 3000
 2570 return
 
-3000 get k$:x=0
+3000 get k$:x=0 :rem don't add a 'ifk$=""' or else the adding routine won't run properly
 3010 gosub 60000
 3015 ifval(k$)>5then3065
 3020 ifval(k$)<1then3065
 3025 x=val(k$)
-3030 ifk$="{f3}"thenms=2
-3035 ifk$="{f5}"thenms=3
 3065 gosub 3500 : rem buying routine
 3070 gosub 50000
 3075 ifk$=" "thencc=cc+1:?"{home}{down}{right}"int(cc)
@@ -90,8 +85,7 @@
 3120 ifms<>tmthenreturn 
 3130 goto 3000
 
-3500 y=i+x
-3505 y=y-1
+3500 y=i+x-1
 3510 if cc<pr(y)then3610
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15
 3530 ifx=1then?"{home}"r1$r2$"{down}"ia(y)
@@ -104,8 +98,7 @@
 3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
 3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
 3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
-3610 x=0
-3620 return
+3610 x=0:return
 
 5000 ifms<>2thenreturn 
 5005 ms=1:goto1
@@ -117,18 +110,12 @@
 
 
 
-49999 rem adding and menu selecting subroutines
-50000 ifk$="{f1}"then50040
+50000 ifk$="{f1}"then50040:rem menu selecting subroutine
 50010 ifk$="{f3}"then50040
 50020 ifk$="{f5}"then50040
 50030 return
-50040 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}")
-50050 return
+50040 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}"):return
 
-60000 fora=0to17
-60010 b=b+cg(x)
-60020 next
-60030 cc=cc+b
-60040 ?"{home}{down}{right}"int(cc)
-60040 return
+60000 fora=0to17:b=b+cg(x):next:rem adding subroutine
+60030 cc=cc+b:?"{home}{down}{right}"int(cc):return
 
