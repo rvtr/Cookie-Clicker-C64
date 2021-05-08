@@ -44,21 +44,15 @@
 1010 goto 1000
 
 2000 ifms<>1thenreturn 
-
-
 2010 ifss>0theni=0:j=4:ifss>1theni=5:j=9:ifss>2theni=10:j=14:ifss>3theni=15:j=17 :rem set ranges for the arrays
 2060 ts=ss:tm=ms
-2090 gosub2300
+2090 gosub2500
 2100 goto2000
 
-2300 forx=1to20: rem clears the menu 
-2310 ifx=1then?"{home}"r1$"{down}                      ";
-2320 ?r1$"{right}                      ";:next
-2340 gosub2500
-
-2500 y=1:forx=itoj
-2505 ifx=ithen?"{home}"
-2510 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
+2500 gosub51000
+2505y=1:forx=itoj
+2510 ifx=ithen?"{home}"
+2515 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
 2540 ?r1$"{up}"pr(x)
@@ -115,6 +109,11 @@
 50020 ifk$="{f5}"then50040
 50030 return
 50040 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}"):return
+
+51000 forx=1to20: rem clears the menu 
+51010 ifx=1then?"{home}"r1$"{down}                      ";
+51020 ?r1$"{right}                      ";:next
+51040 return
 
 60000 fora=0to17:b=b+cg(x):next:rem adding subroutine
 60030 cc=cc+b:?"{home}{down}{right}"int(cc):return
