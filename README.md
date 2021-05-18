@@ -10,9 +10,6 @@
         <img src="https://img.shields.io/discord/704065693246685225?color=purple&label=Discord&logo=Discord&style=plastic"
             alt="Chat on Discord">
 </a>
-<a href="https://www.youtube.com/channel/UCjbecKNosrmUgRIOqU0UxCw/" style="padding-left: 5px; padding-right: 5px;">
-		<img src="https://img.shields.io/badge/YouTube-Channel-red.svg" height="20">
-</a>
   <a href="https://gbatemp.net/download/cookie-clicker-c64.36587/" style="padding-left: 5px; padding-right: 5px;">
 		<img src="https://img.shields.io/badge/GBAtemp-Link-blue.svg" height="20">
 </a>
@@ -21,8 +18,7 @@
 </a>
 </p>
 
-Cookie Clicker C64 (or CC64 for short) is a WIP Cookie clicker clone for the Commodore 64.
-
+Cookie Clicker C64 (CC64 for short) is a WIP Cookie clicker clone for the Commodore 64.
 
 
 Credits: 
@@ -31,6 +27,7 @@ Credits:
 
 Notes: 
 - Editing program lines larger than 80 characters on the C64 (or on an emulator) will result in parts of them being deleted
+- `storedat`  must be placed in the same d64 as `cookie.prg`, or in the same directory, if your emulator treats a folder like a disk. Also note that unlike `storedat`, `cc64.sav` is not needed to run the game, so you can place it on another d64 and swap disks when needed.
 
 
 
