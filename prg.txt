@@ -1,14 +1,14 @@
 0 rem !to "build/cookie.prg"
 10 mi=17:dimna$(mi):dimia(mi):dimbd$(mi):dimbg(mi):dimpr(mi):dimcg(mi)
-20 open 8,8,8,"storedat,s,r"          
-30 forx=0tomi
-40 input#8,na$(x)
-50 input#8,bd$(x)
-55 input#8,bg(x)
-60 input#8,pr(x)
-65 ?x+1"/"mi+1
-70 next
-80 close 8
+20 rem open 8,8,8,"storedat,s,r"          
+30 rem forx=0tomi
+40 rem input#8,na$(x)
+50 rem input#8,bd$(x)
+55 rem input#8,bg(x)
+60 rem input#8,pr(x)
+65 rem ?x+1"/"mi+1
+70 rem next
+80 gosub 52000:rem close 8
 90 ms=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}":ss=1
 100 rem stick news here. 
@@ -55,7 +55,7 @@
 2515 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
-2540 ?r1$"{up}"pr(x)
+2540 ?r1$"{up}"int(pr(x))
 2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
 2550 next
 2555 ifj=17then?r1$"{down}{down}{down}{down}{down}{down}{down}        prev/next(-/+)"
@@ -65,8 +65,8 @@
 
 3000 get k$:x=0 :rem don't add a 'ifk$=""' or else the adding routine won't run properly
 3010 gosub 60000
-3015 ifval(k$)>5then3065
-3020 ifval(k$)<1then3065
+3015 ifval(k$)>5then3070
+3020 ifval(k$)<1then3070
 3025 x=val(k$)
 3065 gosub 3500 : rem buying routine
 3070 gosub 50000
@@ -81,7 +81,7 @@
 
 3500 y=i+x-1
 3510 if cc<pr(y)then3610
-3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15
+3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15:ia(y)=ia(y)+1
 3530 ifx=1then?"{home}"r1$r2$"{down}"ia(y)
 3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}"ia(y)
 3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
@@ -115,6 +115,79 @@
 51020 ?r1$"{right}                      ";:next
 51040 return
 
+52000 x=0:na$(x)="cursor"
+52001 bd$(x)="adds .1 cps"
+52002 bg(x)=.1
+52003 pr(x)=15
+52004 x=x+1:na$(x)="grandma"
+52005 bd$(x)="adds 1 cps"
+52006 bg(x)=1
+52007 pr(x)=100
+52008 x=x+1:na$(x)="farm"
+52009 bd$(x)="adds 8 cps"
+52010 bg(x)=8
+52011 pr(x)=1100
+52012 x=x+1:na$(x)="mine"
+52013 bd$(x)="adds 47 cps"
+52014 bg(x)=47
+52015 pr(x)=12000
+52016 x=x+1:na$(x)="factory"
+52017 bd$(x)="adds 260 cps"
+52018 bg(x)=260
+52019 pr(x)=130000
+52020 x=x+1:na$(x)="bank"
+52021 bd$(x)="adds 1400 cps"
+52022 bg(x)=1400
+52023 pr(x)=1400000
+52024 x=x+1:na$(x)="temple"
+52025 bd$(x)="adds 7800 cps"
+52026 bg(x)=7800
+52027 pr(x)=20000000
+52028 x=x+1:na$(x)="wizard tower"
+52029 bd$(x)="adds 44000 cps"
+52030 bg(x)=44000
+52031 pr(x)=330000000
+52032 x=x+1:na$(x)="shipment"
+52033 bd$(x)="adds 260000 cps"
+52034 bg(x)=260000
+52035 pr(x)=5100000000
+52036 x=x+1:na$(x)="alchemy lab"
+52037 bd$(x)="adds 1600000 cps"
+52038 bg(x)=1600000
+52039 pr(x)=75000000000
+52040 x=x+1:na$(x)="portal"
+52041 bd$(x)="adds 10 million cps"
+52042 bg(x)=10000000
+52043 pr(x)=1000000000000
+52044 x=x+1:na$(x)="time machine"
+52045 bd$(x)="adds 65 million cps"
+52046 bg(x)=65000000
+52047 pr(x)=14000000000000
+52048 x=x+1:na$(x)="antimatter condenser"
+52049 bd$(x)="adds 430 million cps"
+52050 bg(x)=430000000
+52051 pr(x)=170000000000000
+52052 x=x+1:na$(x)="prism"
+52053 bd$(x)="adds 2.9 billion cps"
+52054 bg(x)=2900000000
+52055 pr(x)=2100000000000000
+52056 x=x+1:na$(x)="chancemaker"
+52057 bd$(x)="adds 21 billion cps"
+52058 bg(x)=21000000000
+52059 pr(x)=26000000000000000
+52060 x=x+1:na$(x)="fractal engine"
+52061 bd$(x)="adds 150 billion cps"
+52062 bg(x)=150000000000
+52063 pr(x)=310000000000000000
+52064 x=x+1:na$(x)="ml monitor"
+52065 bd$(x)="adds 1.1 trillion cps"
+52066 bg(x)=1100000000000
+52067 pr(x)=71000000000000000000
+52068 x=x+1:na$(x)="idleverse"
+52069 bd$(x)="adds 8.3 trillion cps"
+52070 bg(x)=8300000000000
+52071 pr(x)=1.2e+22
+52072 return
+
 60000 fora=0tomi:b=b+cg(x):next:rem adding subroutine
 60030 cc=cc+b:?"{home}{down}{right}"int(cc):return
-
