@@ -70,7 +70,6 @@
 3025 x=val(k$)
 3065 gosub 3500 : rem buying routine
 3070 gosub 50000
-3075 ifk$=" "thencc=cc+1:?"{home}{down}{right}"int(cc)
 3080 ifk$="+"thenss=ss+1
 3085 ifk$="-"thenss=ss-1
 3090 ifss=0thenss=1
@@ -81,6 +80,7 @@
 
 3500 y=i+x-1
 3510 if cc<pr(y)then3610
+3515 if ia(y)=300then3610:rem temp item cap  
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15:ia(y)=ia(y)+1
 3530 ifx=1then?"{home}"r1$r2$"{down}"ia(y)
 3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}"ia(y)
@@ -189,5 +189,6 @@
 52071 pr(x)=1.2e+22
 52072 return
 
-60000 fora=0tomi:b=b+cg(x):next:rem adding subroutine
-60030 cc=cc+b:?"{home}{down}{right}"int(cc):return
+60000 b=0:fora=0tomi:b=b+cg(a):next:rem adding subroutine
+60010 cc=cc+b:?"{home}{down}{right}"int(cc):return
+60020 ifk$=" "thencc=cc+1:?"{home}{down}{right}"int(cc)
