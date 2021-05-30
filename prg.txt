@@ -9,7 +9,7 @@
 65 rem ?x+1"/"mi+1
 70 rem next
 80 gosub 52000:rem close 8
-90 ms=1:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
+90 ms=2:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
 95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}":ss=1
 100 rem stick news here. 
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
@@ -43,15 +43,15 @@
 1000 on ms gosub 2000, 5000, 5000
 1010 goto 1000
 
-2000 ifms<>1thenreturn 
-2010 ifss>0theni=0:j=4:ifss>1theni=5:j=9:ifss>2theni=10:j=14:ifss>3theni=15:j=17 :rem set ranges for the arrays
-2060 ts=ss:tm=ms
-2090 gosub2500
-2100 goto2000
+2000 ifms<>1thenreturn :rem store page selection and menu switching area.
+2010 ifss>0theni=0:j=4:ifss>1theni=5:j=9:ifss>2theni=10:j=14:ifss>3theni=15:j=17
+2060 ts=ss:tm=ms       :rem 2010 sets the range of item data
+2090 gosub2500         :rem to be used. do not have a range 
+2100 goto2000          :rem bigger than 5. (smaller is fine)
 
 2500 gosub51000
-2505y=1:forx=itoj
-2510 ifx=ithen?"{home}"
+2505 y=1:forx=itoj      :rem this section prints the 
+2510 ifx=ithen?"{home}" :rem item data in the given range.
 2515 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
@@ -63,12 +63,12 @@
 2565 gosub 3000
 2570 return
 
-3000 get k$:x=0 :rem don't add a 'ifk$=""' or else the adding routine won't run properly
-3010 gosub 60000
-3015 ifval(k$)>5then3070
-3020 ifval(k$)<1then3070
+3000 get k$:x=0          :rem don't add a 'ifk$=""' or else the adding routine won't run properly
+3010 gosub 60000         :rem 
+3015 ifval(k$)>5then3070 :rem main loop
+3020 ifval(k$)<1then3070 :rem 
 3025 x=val(k$)
-3065 gosub 3500 : rem buying routine
+3065 gosub 3500 
 3070 gosub 50000
 3080 ifk$="+"thenss=ss+1
 3085 ifk$="-"thenss=ss-1
@@ -78,7 +78,7 @@
 3120 ifms<>tmthenreturn 
 3130 goto 3000
 
-3500 y=i+x-1
+3500 y=i+x-1 :rem buying subroutine
 3510 if cc<pr(y)then3610
 3515 if ia(y)=300then3610:rem temp item cap  
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15:ia(y)=ia(y)+1
@@ -94,19 +94,46 @@
 3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
 3610 x=0:return
 
-5000 ifms<>2thenreturn 
-5005 ms=1:goto1
-5010 tc=cs
-5020 tm=ms
-5030 gosub5100
-5040 goto5000
+5000 ifms<>2thenreturn             :rem 
+5010 tm=ms                         :rem this section is for menu switching.
+5020 gosub51000:gosub5100:goto5000 :rem
+
+5100 ?"{home}{down}"r1$"{rvon}1{rvof} change your bakery's"
+5110 ?r1$"name"
+5120 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
+5130 ?r1$"{up}{rvon}2{rvof} create a save file"
+5140 ?r1$"on a disk"
+5150 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
+5160 ?r1$"{up}{rvon}3{rvof} load a save file"
+5170 ?r1$"from a disk"
+5180 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
+5160 ?r1$"{up}{rvon}4{rvof} manage your saves"
+5180 ?r1$"{down}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
 
 
+5200 getk$               :rem 
+5210 ifval(k$)>4then5240 :rem main loop
+5220 ifval(k$)<1then5240 :rem 
+5230 onval(k$)gosub5500,5600,5700,5800
+5240 gosub 50000
+5250 ifms<>tmthenreturn 
+5260 goto 5200
 
+5500 tn$="":?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"new name:"
+5510 getnp$:ifnp$=""then5510                   :
+5515 iflen(tn$)=0then?r1$,
+5520 ?np$;:tn$=tn$+np$:ifnp$="{\n}"then5540 :rem bakery name
+5530 iflen(tn$)<14then5510                     : 
+5540 ?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"            "
+5550 ?r1$"              ":bn$=left$(tn$,13):?"{home}{down}{down}{down}{down}{right}               {left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}"bn$"'s":return
 
-50000 ifk$="{f1}"then50040:rem menu selecting subroutine
-50010 ifk$="{f3}"then50040
-50020 ifk$="{f5}"then50040
+10000 stop
+
+49999 :rem important subroutines 
+
+50000 ifk$="{f1}"then50040:rem 
+50010 ifk$="{f3}"then50040:rem menu selecting
+50020 ifk$="{f5}"then50040:rem 
 50030 return
 50040 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}"):return
 
@@ -189,6 +216,7 @@
 52071 pr(x)=1.2e+22
 52072 return
 
-60000 b=0:fora=0tomi:b=b+cg(a):next:rem adding subroutine
-60010 cc=cc+b:?"{home}{down}{right}"int(cc):return
-60020 ifk$=" "thencc=cc+1:?"{home}{down}{right}"int(cc)
+60000 b=0:fora=0tomi:b=b+(cg(a)/3.6):next:rem adding subroutine
+60010 ifk$=" "thencc=cc+1
+60020 ifcb>ccthen?"{home}{down}{right}               "
+60030 cc=cc+b:?"{home}{down}{right}"int(cc):cb=cc:return
