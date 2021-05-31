@@ -114,18 +114,39 @@
 5200 getk$               :rem 
 5210 ifval(k$)>4then5240 :rem main loop
 5220 ifval(k$)<1then5240 :rem 
-5230 onval(k$)gosub5500,5600,5700,5800
+5230 onval(k$)gosub5500,5700,5900,6100
 5240 gosub 50000
 5250 ifms<>tmthenreturn 
 5260 goto 5200
 
-5500 tn$="":?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"new name:"
-5510 getnp$:ifnp$=""then5510                   :
-5515 iflen(tn$)=0then?r1$,
+5500 tn$="":?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"new name:"
+5510 getnp$:ifnp$=""then5510
+5515 iflen(tn$)<1then?r1$;                  :
 5520 ?np$;:tn$=tn$+np$:ifnp$="{\n}"then5540 :rem bakery name
-5530 iflen(tn$)<14then5510                     : 
-5540 ?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"            "
-5550 ?r1$"              ":bn$=left$(tn$,13):?"{home}{down}{down}{down}{down}{right}               {left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}"bn$"'s":return
+5530 iflen(tn$)<14then5510                  : 
+5540 ?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"            "
+5550 ?r1$"                 ":bn$=left$(tn$,(len(tn$)-1))
+5560 ?"{home}{down}{down}{down}{down}{right}               {home}{down}{down}{down}{down}{right}"bn$"'s":return
+
+5700 open 8,8,8,"@0:savedat,s,w" :rem save data
+5710 print#8,fl
+5720 print#8,bn$
+5730 print#8,cc
+5740 forx=0tomi
+5750 print#8,cg(x)
+5760 print#8,pr(x)
+5770 print#8,ia(x)
+5780 next:close 8:return
+
+5900 open 8,8,8,"@0:savedat,s,r" :rem load data
+5910 input#8,fl
+5920 input#8,bn$
+5930 input#8,cc
+5940 forx=0tomi
+5950 input#8,cg(x)
+5960 input#8,pr(x)
+5970 input#8,ia(x)
+5980 next:close 8:return
 
 10000 stop
 
