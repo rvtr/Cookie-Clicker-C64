@@ -18,8 +18,11 @@
 </a>
 </p>
 
-Cookie Clicker C64 (CC64 for short) is a WIP Cookie clicker clone for the Commodore 64.
+Cookie Clicker C64 (or CC64 for short) is a Cookie clicker clone for the Commodore 64.
 
+## How to play : 
+
+- Press the space bar to 'click' for cookies.
 
 Credits: 
 - [@Orteil](https://orteil.dashnet.org/) for making the original cookie clicker game
@@ -27,7 +30,7 @@ Credits:
 
 Notes: 
 - Editing program lines larger than 80 characters on the C64 (or on an emulator) will result in parts of them being deleted
-- `storedat`  must be placed in the same d64 as `cookie.prg`, or in the same directory, if your emulator treats a folder like a disk. Also note that unlike `storedat`, `cc64.sav` is not needed to run the game, so you can place it on another d64 and swap disks when needed.
+- `storedat`  must be placed in the same d64 as `cookie.prg`, or in the same directory, if your emulator treats a folder like a disk. Also note that unlike `storedat`, `savedat` is not needed to run the game, so you can place `savedat` on another d64 and swap disks when needed.
 
 
 
