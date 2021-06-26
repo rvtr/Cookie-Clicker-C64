@@ -1,12 +1,12 @@
 0 rem !to "build/cookie.prg"
-10 mi=17:dimna$(mi):dimia(mi):dimbd$(mi):dimbg(mi):dimpr(mi):dimcg(mi)
+10 mb=17:dimna$(mb):dimia(mb):dimbd$(mb):dimbg(mb):dimpr(mb):dimcg(mb)
 20 rem open 8,8,8,"storedat,s,r"          
-30 rem forx=0tomi
+30 rem forx=0tomb
 40 rem input#8,na$(x)
 50 rem input#8,bd$(x)
 55 rem input#8,bg(x)
 60 rem input#8,pr(x)
-65 rem ?x+1"/"mi+1
+65 rem ?x+1"/"mb+1
 70 rem next
 80 gosub 52000:rem close 8
 90 ms=2:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
@@ -78,7 +78,7 @@
 3120 ifms<>tmthenreturn 
 3130 goto 3000
 
-3500 y=i+x-1 :rem buying subroutine
+3500 y=i+x-1:ify>mbthenreturn :rem buying subroutine
 3510 if cc<pr(y)then3610
 3515 if ia(y)=300then3610:rem temp item cap  
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15:ia(y)=ia(y)+1
@@ -132,7 +132,7 @@
 5710 print#8,fl
 5720 print#8,bn$
 5730 print#8,cc
-5740 forx=0tomi
+5740 forx=0tomb
 5750 print#8,cg(x)
 5760 print#8,pr(x)
 5770 print#8,ia(x)
@@ -142,7 +142,7 @@
 5910 input#8,fl
 5920 input#8,bn$
 5930 input#8,cc
-5940 forx=0tomi
+5940 forx=0tomb
 5950 input#8,cg(x)
 5960 input#8,pr(x)
 5970 input#8,ia(x)
