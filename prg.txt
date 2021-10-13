@@ -1,47 +1,55 @@
+!- ========================================
+!- Project   : Cookie Clicker
+!- Target    : Commodore 64
+!- Comments  : Cookie Clicker for the C64.
+!- Author    : Ian M. Skinner
+!- ========================================
 0 rem !to "build/cookie.prg"
 10 mb=17:dimna$(mb):dimia(mb):dimbd$(mb):dimbg(mb):dimpr(mb):dimcg(mb)
-20 rem open 8,8,8,"storedat,s,r"          
+15 gosub52000:rem remove later
+20 rem open 8,8,8,"storedat,s,r"  
 30 rem forx=0tomb
-40 rem input#8,na$(x)
-50 rem input#8,bd$(x)
-55 rem input#8,bg(x)
-60 rem input#8,pr(x)
-65 rem ?x+1"/"mb+1
+40 rem input#8,na$(x):rem building name
+50 rem input#8,bd$(x):rem building description 
+55 rem input#8,bg(x):rem building cps (not actually per second)
+60 rem input#8,pr(x):rem building price
+65 rem ?x+1"/"mb+1: 
 70 rem next
-80 gosub 52000:rem close 8
-90 ms=2:bn$="someone's":r1$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}"
-95 r2$="{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}{right}":ss=1
-100 rem stick news here. 
-110 print"{brown}{clear}UCCCCCCCCCCCCCCC{$b2}CCCCCCCCCCCCCCCCCCCCCCI";
+80 rem close 8:rem gosub 52000
+90 ms=1:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value
+95 r2$="{right*17}":ss=1:rem huh? that isn't right. why are r1 and r2 the same?
+100 rem stick news here. Also ss is the shop page. (to be named sp)
+110 print"{brown}{clear}UCCCCCCCCCCCCCCC{cm r}CCCCCCCCCCCCCCCCCCCCCCI";
 120 print"B               B                      B";
 130 print"B               B                      B";
-140 print"{$ab}CCCCCCCCCCCCCCC{$b3}                      B";
+140 print"{cm q}CCCCCCCCCCCCCCC{cm w}                      B";
 150 print"B               B                      B";
 160 print"B               B                      B";
 170 print"B               B                      B";
-180 print"B     {rvon}     {rvof}     B                      B";
-190 print"B    {rvon}  {blk}  {brown}   {rvof}    B                      B";
-200 print"B   {rvon}       {blk} {brown} {rvof}   B                      B";
-210 print"B  {rvon}   {blk}  {brown} {blk}  {brown}   {rvof}  B                      B";
-220 print"B {rvon}    {blk}  {brown}  {blk}  {brown}   {rvof} B                      B";
-230 print"B {rvon}             {rvof} B                      B";
-240 print"B {rvon}             {rvof} B                      B";
-250 print"B {rvon}         {blk}  {brown}  {rvof} B                      B";
-260 print"B {rvon}   {blk} {brown} {blk} {brown}  {blk}  {brown}   {rvof} B                      B";
-270 print"B  {rvon}   {blk}  {brown}  {blk}  {brown}  {rvof}  B                      B";
-280 print"B   {rvon}         {rvof}   B                      B";
-290 print"B    {rvon}       {rvof}    B                      B";
-300 print"B     {rvon}     {rvof}     B                      B";
+180 print"B     {reverse on}     {reverse off}     B                      B";
+190 print"B    {reverse on}  {black}  {brown}   {reverse off}    B                      B";
+200 print"B   {reverse on}       {black} {brown} {reverse off}   B                      B";
+210 print"B  {reverse on}   {black}  {brown} {black}  {brown}   {reverse off}  B                      B";
+220 print"B {reverse on}    {black}  {brown}  {black}  {brown}   {reverse off} B                      B";
+230 print"B {reverse on}             {reverse off} B                      B";
+240 print"B {reverse on}             {reverse off} B                      B";
+250 print"B {reverse on}         {black}  {brown}  {reverse off} B                      B";
+260 print"B {reverse on}   {black} {brown} {black} {brown}  {black}  {brown}   {reverse off} B                      B";
+270 print"B  {reverse on}   {black}  {brown}  {black}  {brown}  {reverse off}  B                      B";
+280 print"B   {reverse on}         {reverse off}   B                      B";
+290 print"B    {reverse on}       {reverse off}    B                      B";
+300 print"B     {reverse on}     {reverse off}     B                      B";
 310 print"B               B                      B";
-320 print"B{wht} v2.9.0-1.0    {brown}B                      B";
-330 print"JCCCCCCCCCCCCCCC{$b1}CCCCCCCCCCCCCCCCCCCCCCK";
-340 print"{wht} {rvon}f1{rvof} store {rvon}f3{rvof} options {rvon}f5{rvof} stats {rvon}f7{rvof} ascend";
+320 print"B{white} v2.9.0-1.0    {brown}B                      B";
+330 print"JCCCCCCCCCCCCCCC{cm e}CCCCCCCCCCCCCCCCCCCCCCK";
+340 print"{white} {reverse on}f1{reverse off} store {reverse on}f3{reverse off} options {reverse on}f5{reverse off} stats {reverse on}f7{reverse off} ascend";
 500 print"{home}{down}{right}"int(cc)
-510 print"{brown}B{wht} cookies"
-520 ?"{brown}B{wht}"bn$
-530 print"{up}{brown}B{wht}    bakery"
-1000 on ms gosub 2000, 5000, 5000
-1010 goto 1000
+510 print"{brown}B{white} cookies"
+520 ?"{brown}B{white}"bn$
+530 print"{up}{brown}B{white}    bakery"
+
+1000 on ms gosub 2000, 5000:rem, 7000
+1010 goto 1000:rem the menu selector
 
 2000 ifms<>1thenreturn :rem store page selection and menu switching area.
 2010 ifss>0theni=0:j=4:ifss>1theni=5:j=9:ifss>2theni=10:j=14:ifss>3theni=15:j=17
@@ -49,24 +57,24 @@
 2090 gosub2500         :rem to be used. do not have a range 
 2100 goto2000          :rem bigger than 5. (smaller is fine)
 
-2500 gosub51000
+2500 gosub51000:rem clear dynamic window
 2505 y=1:forx=itoj      :rem this section prints the 
 2510 ifx=ithen?"{home}" :rem item data in the given range.
-2515 ?r1$"{up}{rvon}"right$(str$(y),1)"{rvof} "na$(x)
+2515 ?r1$"{up}{reverse on}"right$(str$(y),1)"{reverse off} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
 2540 ?r1$"{up}"int(pr(x))
-2545 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}":y=y+1
+2545 ?r1$"{cm t*22}":y=y+1:rem the bars below each item
 2550 next
-2555 ifj=17then?r1$"{down}{down}{down}{down}{down}{down}{down}        prev/next(-/+)"
+2555 ifj=17then?r1$"{down*7}        prev/next(-/+)"
 2560 ?r1$"{up}        prev/next(-/+)"
 2565 gosub 3000
 2570 return
 
-3000 get k$:x=0          :rem don't add a 'ifk$=""' or else the adding routine won't run properly
-3010 gosub 60000         :rem 
-3015 ifval(k$)>5then3070 :rem main loop
-3020 ifval(k$)<1then3070 :rem 
+3000 get k$:x=0:rem don't add an 'ifk$=""then3000' or else the adding routine won't run properly
+3010 gosub 60000
+3015 ifval(k$)>5then3070
+3020 ifval(k$)<1then3070
 3025 x=val(k$)
 3065 gosub 3500 
 3070 gosub 50000
@@ -80,56 +88,38 @@
 
 3500 y=i+x-1:ify>mbthenreturn :rem buying subroutine
 3510 if cc<pr(y)then3610
-3515 if ia(y)=300then3610:rem temp item cap  
+3515 if ia(y)=300then3610:rem item cap (otherwise you'd have prices too big to handle)  
 3520 cc=cc-pr(y):cg(y)=cg(y)+bg(y):pr(y)=pr(y)*1.15:ia(y)=ia(y)+1
-3530 ifx=1then?"{home}"r1$r2$"{down}"ia(y)
-3540 ifx=2then?"{home}"r1$r2$"{down}{down}{down}{down}{down}"ia(y)
-3550 ifx=3then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3560 ifx=4then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3565 ifx=5then?"{home}"r1$r2$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"ia(y)
-3570 ifx=1then?"{home}"r1$"{down}{down}{down}"int(pr(y))
-3580 ifx=2then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
-3590 ifx=3then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
-3600 ifx=4then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
-3605 ifx=5then?"{home}"r1$"{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"int(pr(y))
+3530 ifx=1then?"{home}"r1$r2$"{down}"ia(y):rem find a better way to do this
+3540 ifx=2then?"{home}"r1$r2$"{down*5}"ia(y)  
+3550 ifx=3then?"{home}"r1$r2$"{down*9}"ia(y)
+3560 ifx=4then?"{home}"r1$r2$"{down*13}"ia(y)
+3565 ifx=5then?"{home}"r1$r2$"{down*17}"ia(y)
+3570 ifx=1then?"{home}"r1$"{down*3}"int(pr(y))
+3580 ifx=2then?"{home}"r1$"{down*7}"int(pr(y))
+3590 ifx=3then?"{home}"r1$"{down*11}"int(pr(y))
+3600 ifx=4then?"{home}"r1$"{down*15}"int(pr(y))
+3605 ifx=5then?"{home}"r1$"{down*19}"int(pr(y))
 3610 x=0:return
 
-5000 ifms<>2thenreturn             :rem 
-5010 tm=ms                         :rem this section is for menu switching.
-5020 gosub51000:gosub5100:goto5000 :rem
-
-5100 ?"{home}{down}"r1$"{rvon}1{rvof} change your bakery's"
-5110 ?r1$"name"
-5120 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
-5130 ?r1$"{up}{rvon}2{rvof} create a save file"
-5140 ?r1$"on a disk"
-5150 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
-5160 ?r1$"{up}{rvon}3{rvof} load a save file"
-5170 ?r1$"from a disk"
-5180 ?r1$"{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
-5160 ?r1$"{up}{rvon}4{rvof} manage your saves"
-5180 ?r1$"{down}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{$a3}{down}"
-
-
-5200 getk$               :rem 
-5210 ifval(k$)>4then5240 :rem main loop
-5220 ifval(k$)<1then5240 :rem 
-5230 onval(k$)gosub5500,5700,5900,6100
-5240 gosub 50000
-5250 ifms<>tmthenreturn 
-5260 goto 5200
-
-5500 tn$="":?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"new name:"
-5510 getnp$:ifnp$=""then5510
-5515 iflen(tn$)<1then?r1$;                  :
-5520 ?np$;:tn$=tn$+np$:ifnp$="{\n}"then5540 :rem bakery name
-5530 iflen(tn$)<14then5510                  : 
-5540 ?"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"r1$"            "
-5550 ?r1$"                 ":bn$=left$(tn$,(len(tn$)-1))
-5560 ?"{home}{down}{down}{down}{down}{right}               {home}{down}{down}{down}{down}{right}"bn$"'s":return
+5000 ifms<>2thenreturn
+5010 tm=ms
+5020 gosub5500
+5030 goto5000
+ 
+5500 gosub51000:rem clear screen
+5510 ?r1$"change name";
+5530 ?r1$"{$a3*22}{down}"
+5540 ?r1$"save";
+5560 ?r1$"{$a3*22}{down}"
+5570 ?r1$"load";
+5590 ?r1$"{$a3*22}{down}"
+5600 getk$:rem main loop
+5610 gosub 60000:rem adding routine
+5620 
 
 5700 open 8,8,8,"@0:savedat,s,w" :rem save data
-5710 print#8,fl
+5710 print#8,al
 5720 print#8,bn$
 5730 print#8,cc
 5740 forx=0tomb
@@ -139,7 +129,7 @@
 5780 next:close 8:return
 
 5900 open 8,8,8,"@0:savedat,s,r" :rem load data
-5910 input#8,fl
+5910 input#8,al
 5920 input#8,bn$
 5930 input#8,cc
 5940 forx=0tomb
@@ -152,13 +142,13 @@
 
 49999 :rem important subroutines 
 
-50000 ifk$="{f1}"then50040:rem 
-50010 ifk$="{f3}"then50040:rem menu selecting
-50020 ifk$="{f5}"then50040:rem 
+50000 ifk$="{f1}"then50040:rem menu selecting
+50010 ifk$="{f3}"then50040
+50020 ifk$="{f5}"then50040
 50030 return
 50040 ms=-1*(k$="{f1}")-2*(k$="{f3}")-3*(k$="{f5}"):return
 
-51000 forx=1to20: rem clears the menu 
+51000 forx=1to20: rem clears the menu
 51010 ifx=1then?"{home}"r1$"{down}                      ";
 51020 ?r1$"{right}                      ";:next
 51040 return
@@ -237,7 +227,7 @@
 52071 pr(x)=1.2e+22
 52072 return
 
-60000 b=0:fora=0tomi:b=b+(cg(a)/3.6):next:rem adding subroutine
+60000 b=0:fora=0tomb:b=b+(cg(a)/3.6):next:rem slow, horrible, not good adding subroutine
 60010 ifk$=" "thencc=cc+1
 60020 ifcb>ccthen?"{home}{down}{right}               "
 60030 cc=cc+b:?"{home}{down}{right}"int(cc):cb=cc:return

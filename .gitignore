@@ -1,9 +1,5 @@
-# Mac files
-.DS_Store
-build/.DS_Store
-# Others 
-# testmenu.txt
-# build/testmenu.prg
-# build/testmenu.prg.out.prg
-build/cc64.sav
-build/cookie.d64
+# Created with CBM prg Studio
+bak
+*.dbg
+*.dmp
+*.dup
