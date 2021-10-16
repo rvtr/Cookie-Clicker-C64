@@ -16,7 +16,7 @@
 65 rem ?x+1"/"mb+1: 
 70 rem next
 80 rem close 8:rem gosub 52000
-90 ms=1:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value
+90 ms=2:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value
 95 r2$="{right*17}":ss=1:rem huh? that isn't right. why are r1 and r2 the same?
 100 rem stick news here. Also ss is the shop page. (to be named sp)
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{cm r}CCCCCCCCCCCCCCCCCCCCCCI";
@@ -104,21 +104,32 @@
 
 5000 ifms<>2thenreturn
 5010 tm=ms
-5020 gosub5500
+5020 gosub5100
 5030 goto5000
  
-5500 gosub51000:rem clear screen
-5510 ?r1$"change name";
-5530 ?r1$"{$a3*22}{down}"
-5540 ?r1$"save";
-5560 ?r1$"{$a3*22}{down}"
-5570 ?r1$"load";
-5590 ?r1$"{$a3*22}{down}"
-5600 getk$:rem main loop
-5610 gosub 60000:rem adding routine
-5620 
+5100 ?"{home}{down}"r1$"{reverse on}1{reverse off} change your bakery's"
+5110 ?r1$"name"
+5120 ?r1$"{cm t*22}{down}"
+5130 ?r1$"{up}{reverse on}2{reverse off} create a save file"
+5140 ?r1$"on a disk"
+5150 ?r1$"{cm t*22}{down}"
+5160 ?r1$"{up}{reverse on}3{reverse off} load a save file"
+5170 ?r1$"from a disk"
+5180 ?r1$"{cm t*22}{down}"
+5190 ?r1$"{up}{reverse on}4{reverse off} manage your saves"
+5195 ?r1$"{down}{cm t*22}{down}"
 
-5700 open 8,8,8,"@0:savedat,s,w" :rem save data
+
+5200 getk$               :rem 
+5210 ifval(k$)>4then5240 :rem main loop
+5220 ifval(k$)<1then5240 :rem 
+5230 onval(k$)gosub5700,5900
+5240 gosub 50000:gosub 60000
+5250 ifms<>tmthenreturn 
+5260 goto 5200
+
+
+5700 print"1":open 8,8,8,"@0:savedat,s,w":rem save data
 5710 print#8,al
 5720 print#8,bn$
 5730 print#8,cc
@@ -128,7 +139,7 @@
 5770 print#8,ia(x)
 5780 next:close 8:return
 
-5900 open 8,8,8,"@0:savedat,s,r" :rem load data
+5900 print"2":open 8,8,8,"@0:savedat,s,r":rem load data
 5910 input#8,al
 5920 input#8,bn$
 5930 input#8,cc

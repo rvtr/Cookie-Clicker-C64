@@ -63,16 +63,5 @@
             <Topmost>False</Topmost>
             <FileOpen>True</FileOpen>
         </SourceFile>
-        <SourceFile>
-            <Name>Tune.bas</Name>
-            <PrgName />
-            <FileType>1</FileType>
-            <IncludeInBuild>False</IncludeInBuild>
-            <Regions />
-            <Breakpoints />
-            <Bookmarks />
-            <Topmost>True</Topmost>
-            <FileOpen>True</FileOpen>
-        </SourceFile>
     </SourceFiles>
 </Project>
