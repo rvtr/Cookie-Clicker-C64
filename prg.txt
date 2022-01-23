@@ -5,21 +5,23 @@
 !- Author    : Ian M. Skinner
 !- ========================================
 0 rem !to "build/cookie.prg"
-10 mb=17:dimna$(mb):dimia(mb):dimbd$(mb):dimbg(mb):dimpr(mb):dimcg(mb)
-15 gosub52000:rem remove later
-20 rem open 8,8,8,"storedat,s,r"  
-30 rem forx=0tomb
-40 rem input#8,na$(x):rem building name
-50 rem input#8,bd$(x):rem building description 
-55 rem input#8,bg(x):rem building cps (not actually per second)
-60 rem input#8,pr(x):rem building price
-65 rem ?x+1"/"mb+1: 
-70 rem next
-80 rem close 8:rem gosub 52000
-90 ms=1:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value
+10 mb=17:dimna$(mb):dimia(mb):dimbd$(mb):dimbg(mb):dimpr(mb):dimcg(mb):rem create arrays for item data
+
+20 open 8,8,8,"storedat,s,r":rem load item data
+30 forx=0tomb
+40 input#8,na$(x):rem building name
+50 input#8,bd$(x):rem building description 
+55 input#8,bg(x):rem building cps (not actually per second)
+60 input#8,pr(x):rem building price
+65 ?x+1"/"mb+1: 
+70 next
+80 close 8
+
+90 ms=1:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value, bn is the name
 95 r2$="{right*17}":ss=1:rem huh? that isn't right. why are r1 and r2 the same?
 100 rem stick news here. Also ss is the shop page. (to be named sp)
-110 print"{brown}{clear}UCCCCCCCCCCCCCCC{cm r}CCCCCCCCCCCCCCCCCCCCCCI";
+
+110 print"{brown}{clear}UCCCCCCCCCCCCCCC{cm r}CCCCCCCCCCCCCCCCCCCCCCI";:rem print static screen
 120 print"B               B                      B";
 130 print"B               B                      B";
 140 print"{cm q}CCCCCCCCCCCCCCC{cm w}                      B";
@@ -59,7 +61,7 @@
 
 2500 gosub51000:rem clear dynamic window
 2505 y=1:forx=itoj      :rem this section prints the 
-2510 ifx=ithen?"{home}" :rem item data in the given range.
+2510 ifx=ithen?"{home}" :rem item data in the given range. (it prints the specified page)
 2515 ?r1$"{up}{reverse on}"right$(str$(y),1)"{reverse off} "na$(x)
 2520 ?r1$r2$"{up}"ia(x)
 2530 ?r1$bd$(x)
@@ -68,22 +70,23 @@
 2550 next
 2555 ifj=17then?r1$"{down*7}        prev/next(-/+)"
 2560 ?r1$"{up}        prev/next(-/+)"
-2565 gosub 3000
+2565 gosub 3000:rem goes to actual shop routine 
 2570 return
 
-3000 get k$:x=0:rem don't add an 'ifk$=""then3000' or else the adding routine won't run properly
-3010 gosub 60000
+3000 get k$:x=0
+3010 gosub 60000:rem adding routine
 3015 ifval(k$)>5then3070
 3020 ifval(k$)<1then3070
 3025 x=val(k$)
-3065 gosub 3500 
-3070 gosub 50000
-3080 ifk$="+"thenss=ss+1
+3065 gosub 3500:rem purchase item
+3070 gosub 50000:rem change menu
+
+3080 ifk$="+"thenss=ss+1:rem change store page
 3085 ifk$="-"thenss=ss-1
 3090 ifss=0thenss=1
 3095 ifss=5thenss=4
-3110 ifss<>tsthenreturn
-3120 ifms<>tmthenreturn 
+3110 ifss<>tsthenreturn:rem return if different page was selected
+3120 ifms<>tmthenreturn:rem return if different menu was selected
 3130 goto 3000
 
 3500 y=i+x-1:ify>mbthenreturn :rem buying subroutine
@@ -163,80 +166,6 @@
 51010 ifx=1then?"{home}"r1$"{down}                      ";
 51020 ?r1$"{right}                      ";:next
 51040 return
-
-52000 x=0:na$(x)="cursor"
-52001 bd$(x)="adds .1 cps"
-52002 bg(x)=.1
-52003 pr(x)=15
-52004 x=x+1:na$(x)="grandma"
-52005 bd$(x)="adds 1 cps"
-52006 bg(x)=1
-52007 pr(x)=100
-52008 x=x+1:na$(x)="farm"
-52009 bd$(x)="adds 8 cps"
-52010 bg(x)=8
-52011 pr(x)=1100
-52012 x=x+1:na$(x)="mine"
-52013 bd$(x)="adds 47 cps"
-52014 bg(x)=47
-52015 pr(x)=12000
-52016 x=x+1:na$(x)="factory"
-52017 bd$(x)="adds 260 cps"
-52018 bg(x)=260
-52019 pr(x)=130000
-52020 x=x+1:na$(x)="bank"
-52021 bd$(x)="adds 1400 cps"
-52022 bg(x)=1400
-52023 pr(x)=1400000
-52024 x=x+1:na$(x)="temple"
-52025 bd$(x)="adds 7800 cps"
-52026 bg(x)=7800
-52027 pr(x)=20000000
-52028 x=x+1:na$(x)="wizard tower"
-52029 bd$(x)="adds 44000 cps"
-52030 bg(x)=44000
-52031 pr(x)=330000000
-52032 x=x+1:na$(x)="shipment"
-52033 bd$(x)="adds 260000 cps"
-52034 bg(x)=260000
-52035 pr(x)=5100000000
-52036 x=x+1:na$(x)="alchemy lab"
-52037 bd$(x)="adds 1600000 cps"
-52038 bg(x)=1600000
-52039 pr(x)=75000000000
-52040 x=x+1:na$(x)="portal"
-52041 bd$(x)="adds 10 million cps"
-52042 bg(x)=10000000
-52043 pr(x)=1000000000000
-52044 x=x+1:na$(x)="time machine"
-52045 bd$(x)="adds 65 million cps"
-52046 bg(x)=65000000
-52047 pr(x)=14000000000000
-52048 x=x+1:na$(x)="antimatter condenser"
-52049 bd$(x)="adds 430 million cps"
-52050 bg(x)=430000000
-52051 pr(x)=170000000000000
-52052 x=x+1:na$(x)="prism"
-52053 bd$(x)="adds 2.9 billion cps"
-52054 bg(x)=2900000000
-52055 pr(x)=2100000000000000
-52056 x=x+1:na$(x)="chancemaker"
-52057 bd$(x)="adds 21 billion cps"
-52058 bg(x)=21000000000
-52059 pr(x)=26000000000000000
-52060 x=x+1:na$(x)="fractal engine"
-52061 bd$(x)="adds 150 billion cps"
-52062 bg(x)=150000000000
-52063 pr(x)=310000000000000000
-52064 x=x+1:na$(x)="ml monitor"
-52065 bd$(x)="adds 1.1 trillion cps"
-52066 bg(x)=1100000000000
-52067 pr(x)=71000000000000000000
-52068 x=x+1:na$(x)="idleverse"
-52069 bd$(x)="adds 8.3 trillion cps"
-52070 bg(x)=8300000000000
-52071 pr(x)=1.2e+22
-52072 return
 
 60000 b=0:fora=0tomb:b=b+(cg(a)/3.6):next:rem slow, horrible, not good adding subroutine
 60010 ifk$=" "thencc=cc+1
