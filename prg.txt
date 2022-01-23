@@ -16,7 +16,7 @@
 65 rem ?x+1"/"mb+1: 
 70 rem next
 80 rem close 8:rem gosub 52000
-90 ms=2:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value
+90 ms=1:bn$="someone's":r1$="{right*17}":rem ms is the main subroutine value
 95 r2$="{right*17}":ss=1:rem huh? that isn't right. why are r1 and r2 the same?
 100 rem stick news here. Also ss is the shop page. (to be named sp)
 110 print"{brown}{clear}UCCCCCCCCCCCCCCC{cm r}CCCCCCCCCCCCCCCCCCCCCCI";
