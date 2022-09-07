@@ -1,5 +1,10 @@
 # Cookie-Clicker-C64
 
+# OH MY GOD THIS PROGRAM JUST GOT SHOWED IN A YOUTUBE VIDEO
+https://youtu.be/o6RtnOU-5ss
+LETS FUCKING GOOOOOOOOO
+(to anyone who came here, sorry, this program is reaaaaaaaally buggy. Maybe this is the motivation I need to fix it up)
+
 <p align="center">
 
 <img src="https://github.com/IanSkinner1982/Cookie-Clicker-C64/blob/master/Banner.png"/>
